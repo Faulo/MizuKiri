@@ -65,7 +65,11 @@ namespace MizuKiri {
             mesh.SetTriangles(tris, 0);
             mesh.SetNormals(normals);
             mesh.SetColors(Enumerable.Repeat(randomColor, verts.Count).ToList());
-            mesh.SetUVs(0, Enumerable.Repeat(randomUV, verts.Count).ToList());
+
+            var uvs = Unwrapping.GeneratePerTriangleUV(mesh);
+            var material = randomUV;
+
+            mesh.SetUVs(0, uvs.Select(uv => new Vector4(uv.x, uv.y, material.x, material.y)).ToList());
 
             if (bakePhysicsMesh) {
                 Physics.BakeMesh(mesh.GetInstanceID(), true);
