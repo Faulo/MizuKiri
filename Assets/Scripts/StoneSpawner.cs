@@ -29,7 +29,7 @@ namespace MizuKiri {
             var rigidbody = obj.GetComponent<Rigidbody>();
 
 
-            var mesh = factory.CreateStoneMesh();
+            var mesh = factory.randomMesh;
 
             filter.sharedMesh = mesh;
             collider.sharedMesh = mesh;

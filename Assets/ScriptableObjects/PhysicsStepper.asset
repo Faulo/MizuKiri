@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ca2000603e6dc4fa90ddcb1121a66c, type: 3}
   m_Name: PhysicsStepper
   m_EditorClassIdentifier: 
-  deltaTime: 0.02
-  framesToStep: 10
+  deltaTimePerStep: 0.02
+  framesPerStep: 10
+  totalFramesToSimulate: 1000

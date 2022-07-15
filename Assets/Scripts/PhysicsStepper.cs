@@ -7,7 +7,7 @@ namespace MizuKiri {
     public class PhysicsStepper : ScriptableObject {
 #if UNITY_EDITOR
         [SerializeField]
-        float deltaTimePerStep = 1f/50;
+        float deltaTimePerStep = 1f / 50;
         [SerializeField]
         int framesPerStep = 10;
         [SerializeField]
