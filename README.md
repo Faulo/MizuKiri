@@ -12,3 +12,4 @@ Summer Game Jam 2022:
 
 ### Third-party assets
 - [Slothsoft's Unity Extensions](https://github.com/Faulo/UnityExtensions)
+- [Eclypso's Skybox add-on](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-add-on-136594)
