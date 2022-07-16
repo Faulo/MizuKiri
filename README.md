@@ -14,3 +14,4 @@ Summer Game Jam 2022:
 - [Slothsoft's Unity Extensions](https://github.com/Faulo/UnityExtensions)
 - [Oskar Sigvardsson's quickhull implementation](https://github.com/OskarSigvardsson/unity-quickhull)
 - [Eclypso's Skybox add-on](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-add-on-136594)
+- [IgniteCoder's Simple Water Shader](https://assetstore.unity.com/packages/2d/textures-materials/water/simple-water-shader-urp-191449)
