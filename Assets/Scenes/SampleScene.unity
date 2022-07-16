@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_observedComponent: {fileID: 963194228}
-  gyro: {fileID: 1165280365}
+  gyro: {fileID: 0}
 --- !u!4 &366210933
 Transform:
   m_ObjectHideFlags: 0
@@ -1130,7 +1130,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1165280366}
-  - component: {fileID: 1165280365}
   - component: {fileID: 1165280367}
   m_Layer: 0
   m_Name: Input
@@ -1139,19 +1138,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1165280365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165280364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b99e29e1c896f4cb6dea63275b026e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1165280366
 Transform:
   m_ObjectHideFlags: 0
@@ -1180,7 +1166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchPositions:
-  - {x: 0, y: 0}
+  - {x: 0.5, y: 0.4}
+  - {x: 0.5, y: 0.5}
+  - {x: 0.5, y: 0.6}
 --- !u!1 &1258833153
 GameObject:
   m_ObjectHideFlags: 0

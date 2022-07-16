@@ -90,12 +90,15 @@ namespace MizuKiri {
 
         IEnumerator SimulateTouch() {
             onTouchStart?.Invoke(touchPositions[0], Time.realtimeSinceStartupAsDouble);
+
             yield return null;
+
             for (int i = 1; i < touchPositions.Length - 1; i++) {
                 onTouchMove?.Invoke(touchPositions[i], Time.realtimeSinceStartupAsDouble);
                 yield return null;
             }
-            onTouchMove?.Invoke(touchPositions[^1], Time.realtimeSinceStartupAsDouble);
+
+            onTouchStop?.Invoke(touchPositions[^1], Time.realtimeSinceStartupAsDouble);
         }
 
         [CustomEditor(typeof(TouchInput))]
