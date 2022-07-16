@@ -5,5 +5,8 @@ namespace MizuKiri {
         public void Instantiate(Vector3 position) {
             Instantiate(this, position, Quaternion.identity);
         }
+        public void Instantiate(Stone stone) {
+            Instantiate(this, stone.position, Quaternion.identity);
+        }
     }
 }

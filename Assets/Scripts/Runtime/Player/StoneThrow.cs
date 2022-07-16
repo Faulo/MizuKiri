@@ -27,6 +27,7 @@ namespace MizuKiri.Player {
         }
 
         public void FixedUpdate(float deltaTime) {
+            stone.AddTorque(new Vector3(0, Mathf.Abs(targetPosition.x - currentPosition.x), 0));
             currentPosition = Vector3.SmoothDamp(currentPosition, targetPosition, ref velocity, smoothTime, maxSpeed, deltaTime);
         }
 
