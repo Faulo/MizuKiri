@@ -7,13 +7,8 @@ namespace MizuKiri {
         [SerializeField, Expandable]
         StoneFactory factory = default;
 
-        [SerializeField, Expandable]
-        Stone prefab = default;
-
         [SerializeField]
         float spawnInterval = 1;
-
-        Quaternion randomRotation => Quaternion.Euler(0, Random.Range(0, 360), 0);
 
         protected IEnumerator Start() {
             while (true) {
@@ -22,13 +17,8 @@ namespace MizuKiri {
             }
         }
 
-        public Stone SpawnStone() {
-            var stone = Instantiate(prefab, transform.position, randomRotation);
-
-            stone.mesh = factory.randomMesh;
-            stone.materials = factory.randomMaterials;
-
-            return stone;
+        void SpawnStone() {
+            factory.InstantiateStone(transform.position);
         }
 
         protected void OnDrawGizmos() {

@@ -7437,6 +7437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833bcfaabde02f845acfa4ec89368c7f, type: 3}
   m_Name: StoneFactory
   m_EditorClassIdentifier: 
+  prefab: {fileID: 337980658020188447, guid: 643998e7536f2924eabbe578f43b6564, type: 3}
   meshes:
   - {fileID: -1122744064266699813}
   - {fileID: -2268058631720592547}

@@ -16,14 +16,14 @@ namespace MizuKiri.Player {
 
         Vector3 velocity;
 
-        public StoneThrow(Stone stone, Vector3 position, float smoothTime, float maxSpeed) {
+        public StoneThrow(Stone stone, float smoothTime, float maxSpeed) {
             this.stone = stone;
             this.smoothTime = smoothTime;
             this.maxSpeed = maxSpeed;
 
             stone.freezePosition = true;
 
-            currentPosition = targetPosition = position;
+            targetPosition = currentPosition;
         }
 
         public void FixedUpdate(float deltaTime) {

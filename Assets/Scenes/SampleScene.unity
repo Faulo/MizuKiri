@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touch: {fileID: 1165280367}
-  spawner: {fileID: 1395129801}
+  factory: {fileID: 11400000, guid: 4836699247831f642adc687c60bcabff, type: 2}
   attachedCamera: {fileID: 963194227}
   cameraDistanceOverY:
     serializedVersion: 2
@@ -1393,7 +1393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factory: {fileID: 11400000, guid: 4836699247831f642adc687c60bcabff, type: 2}
-  prefab: {fileID: 337980658020188447, guid: 643998e7536f2924eabbe578f43b6564, type: 3}
   spawnInterval: 0.2
 --- !u!4 &1395129802
 Transform:

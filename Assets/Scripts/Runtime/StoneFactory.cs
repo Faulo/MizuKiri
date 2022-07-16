@@ -30,15 +30,29 @@ namespace MizuKiri {
             public (Material rendering, PhysicMaterial physics) tuple => (rendering, physics);
         }
 
+        [SerializeField, Expandable]
+        Stone prefab = default;
+
+        Quaternion randomRotation => Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
+
         [SerializeField, ReadOnly]
         Mesh[] meshes = Array.Empty<Mesh>();
 
         [SerializeField]
         MaterialSetting[] materials = Array.Empty<MaterialSetting>();
 
-        public Mesh randomMesh => meshes.RandomElement();
+        Mesh randomMesh => meshes.RandomElement();
 
-        public (Material rendering, PhysicMaterial physics) randomMaterials => materials.RandomElement().tuple;
+        (Material rendering, PhysicMaterial physics) randomMaterials => materials.RandomElement().tuple;
+
+        public Stone InstantiateStone(Vector3 position) {
+            var stone = Instantiate(prefab, position, randomRotation);
+
+            stone.mesh = randomMesh;
+            stone.materials = randomMaterials;
+
+            return stone;
+        }
 
 #if UNITY_EDITOR
         [Header("Factory settings")]

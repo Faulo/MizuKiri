@@ -10,7 +10,7 @@ namespace MizuKiri.Player {
         TouchInput touch = default;
 
         [SerializeField, Expandable]
-        StoneSpawner spawner = default;
+        StoneFactory factory = default;
 
         [SerializeField, Expandable]
         Camera attachedCamera = default;
@@ -52,7 +52,7 @@ namespace MizuKiri.Player {
 
         void HandleTouchStart(Vector2 position, double time) {
             if (currentStone == null) {
-                currentStone = new StoneThrow(spawner.SpawnStone(), TranslatePosition(position), throwSpeedSmoothing, throwSpeedMaximum);
+                currentStone = new StoneThrow(factory.InstantiateStone(TranslatePosition(position)), throwSpeedSmoothing, throwSpeedMaximum);
                 onStartThrow?.Invoke(currentStone);
             }
         }
