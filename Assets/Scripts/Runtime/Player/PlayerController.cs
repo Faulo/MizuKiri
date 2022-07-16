@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MizuKiri.Player {
     public class PlayerController : MonoBehaviour {
-        public event Action<PlayerTouch> onStartThrow;
+        public event Action<StoneThrow> onStartThrow;
 
         [SerializeField]
         TouchInput touch = default;
@@ -26,7 +26,7 @@ namespace MizuKiri.Player {
         [SerializeField]
         float throwSpeedMultiplier = 10;
 
-        PlayerTouch currentStone;
+        StoneThrow currentStone;
 
         protected void OnValidate() {
             if (!touch) {
@@ -46,20 +46,24 @@ namespace MizuKiri.Player {
             touch.onTouchStop -= HandleTouchStop;
         }
 
+        protected void FixedUpdate() {
+            currentStone?.FixedUpdate(Time.deltaTime);
+        }
+
         void HandleTouchStart(Vector2 position, double time) {
             if (currentStone == null) {
-                currentStone = new PlayerTouch(spawner.SpawnStone());
-                currentStone.AddPosition(TranslatePosition(position), time);
+                currentStone = new StoneThrow(spawner.SpawnStone(), TranslatePosition(position), throwSpeedSmoothing, throwSpeedMaximum);
                 onStartThrow?.Invoke(currentStone);
             }
         }
         void HandleTouchMove(Vector2 position, double time) {
-            currentStone?.AddPosition(TranslatePosition(position), time);
+            if (currentStone != null) {
+                currentStone.targetPosition = TranslatePosition(position);
+            }
         }
         void HandleTouchStop(Vector2 position, double time) {
             if (currentStone != null) {
-                currentStone.AddPosition(TranslatePosition(position), time);
-                currentStone.Launch(throwSpeedSmoothing, throwSpeedMaximum, throwSpeedMultiplier);
+                currentStone.Launch(TranslatePosition(position), throwSpeedMultiplier);
                 currentStone = null;
             }
         }

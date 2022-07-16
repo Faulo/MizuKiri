@@ -10,7 +10,7 @@ namespace MizuKiri {
         [SerializeField]
         Stone currentStone = default;
 
-        PlayerTouch touch;
+        StoneThrow touch;
 
         protected void OnEnable() {
             player.onStartThrow += HandleThrow;
@@ -19,7 +19,7 @@ namespace MizuKiri {
             player.onStartThrow -= HandleThrow;
         }
 
-        void HandleThrow(PlayerTouch obj) {
+        void HandleThrow(StoneThrow obj) {
             touch = obj;
             currentStone = obj.stone;
         }
