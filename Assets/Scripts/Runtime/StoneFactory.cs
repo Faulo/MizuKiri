@@ -53,8 +53,7 @@ namespace MizuKiri {
         [SerializeField]
         StoneSetting[] settings = Array.Empty<StoneSetting>();
 
-        Color randomColor => Color.HSVToRGB(0, 0, UnityEngine.Random.value);
-        Vector2 randomUV => UnityEngine.Random.insideUnitCircle;
+        Vector3 randomUV => new(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
 
 
         string assetPath => AssetDatabase.GetAssetPath(this);
@@ -79,12 +78,8 @@ namespace MizuKiri {
             mesh.SetVertices(verts);
             mesh.SetTriangles(tris, 0);
             mesh.SetNormals(normals);
-            mesh.SetColors(Enumerable.Repeat(randomColor, verts.Count).ToList());
-
-            var uvs = Unwrapping.GeneratePerTriangleUV(mesh);
-            var material = randomUV;
-
-            mesh.SetUVs(0, uvs.Select(uv => new Vector4(uv.x, uv.y, material.x, material.y)).ToList());
+            mesh.SetUVs(0, Unwrapping.GeneratePerTriangleUV(mesh));
+            mesh.SetUVs(1, Enumerable.Repeat(randomUV, verts.Count).ToList());
 
             if (bakePhysicsMesh) {
                 Physics.BakeMesh(mesh.GetInstanceID(), true);
