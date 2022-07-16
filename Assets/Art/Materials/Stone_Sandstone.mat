@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stone_Light
+  m_Name: Stone_Sandstone
   m_Shader: {fileID: -6465566751694194690, guid: d38da36dc48407b4fb829690ec215a36,
     type: 3}
   m_Parent: {fileID: 0}
@@ -81,7 +81,11 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _MaxMetallic: 0.1
+    - _MaxSmoothness: 0.1
     - _Metallic: 0
+    - _MinMetallic: 0
+    - _MinSmoothness: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -95,8 +99,8 @@ Material:
     m_Colors:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MaxColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-    - _MinColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MaxColor: {r: 0.6313726, g: 0.4039216, b: 0.21176472, a: 1}
+    - _MinColor: {r: 0.8352942, g: 0.654902, b: 0.53333336, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &2449716798920342008
 MonoBehaviour:
