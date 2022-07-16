@@ -1,6 +1,6 @@
 using System;
+using System.Collections;
 using MizuKiri.Input;
-using MizuKiri.Player;
 using Slothsoft.UnityExtensions;
 using UnityEditor;
 using UnityEngine;
@@ -9,11 +9,11 @@ using UnityEngine.InputSystem.LowLevel;
 
 namespace MizuKiri {
     public class TouchInput : MonoBehaviour {
-        public event Action<PlayerTouch> onTouch;
+        public event Action<Vector2> onTouchStart;
+        public event Action<Vector2> onTouchMove;
+        public event Action<Vector2> onTouchStop;
 
         PlayerControls controls;
-
-        PlayerTouch currentTouch;
 
         protected void OnEnable() {
             controls = new();
@@ -29,24 +29,25 @@ namespace MizuKiri {
             }
         }
 
+        bool isTouching = false;
+
         void HandleTouch(InputAction.CallbackContext obj) {
             var touch = obj.ReadValue<TouchState>();
             switch (touch.phase) {
                 case UnityEngine.InputSystem.TouchPhase.Began:
                 case UnityEngine.InputSystem.TouchPhase.Moved:
                 case UnityEngine.InputSystem.TouchPhase.Stationary:
-                    if (currentTouch == null) {
-                        currentTouch = new();
+                    if (!isTouching) {
+                        isTouching = true;
+                        onTouchStart?.Invoke(touch.startPosition);
                     }
-                    AddTouch(touch);
+                    onTouchMove?.Invoke(touch.position);
                     break;
                 case UnityEngine.InputSystem.TouchPhase.Ended:
-                    if (currentTouch == null) {
-                        break;
+                    if (isTouching) {
+                        isTouching = false;
+                        onTouchStop?.Invoke(touch.position);
                     }
-                    AddTouch(touch);
-                    onTouch?.Invoke(currentTouch);
-                    currentTouch = null;
                     break;
                 default:
                     Debug.Log($"Unknown touch phase: {touch.phase}");
@@ -54,19 +55,19 @@ namespace MizuKiri {
             }
         }
 
-        void AddTouch(in TouchState touch) {
-            currentTouch.positions.Add(touch.position);
-        }
-
 #if UNITY_EDITOR
         [Header("Simulate touch")]
         [SerializeField]
         Vector2[] touchPositions = Array.Empty<Vector2>();
 
-        void SimulateTouch() {
-            var touch = new PlayerTouch();
-            touch.positions.AddRange(touchPositions);
-            onTouch?.Invoke(touch);
+        IEnumerator SimulateTouch() {
+            onTouchStart?.Invoke(touchPositions[0]);
+            yield return null;
+            for (int i = 1; i < touchPositions.Length - 1; i++) {
+                onTouchMove?.Invoke(touchPositions[i]);
+                yield return null;
+            }
+            onTouchMove?.Invoke(touchPositions[^1]);
         }
 
         [CustomEditor(typeof(TouchInput))]

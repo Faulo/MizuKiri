@@ -195,24 +195,25 @@ MonoBehaviour:
       time: 0
       value: 0
       inSlope: 0
-      outSlope: 10
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 10
-      inSlope: 10
-      outSlope: 0
+      value: 100
+      inSlope: 169.16525
+      outSlope: 169.16525
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.036144555
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  throwSpeed: 50
+  throwSpeedSmoothing: 0.1
+  throwSpeedMultiplier: 1
 --- !u!1 &641005290
 GameObject:
   m_ObjectHideFlags: 0

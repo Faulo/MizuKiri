@@ -15,8 +15,13 @@ namespace MizuKiri.Player {
         [SerializeField]
         AnimationCurve cameraDistanceOverY = AnimationCurve.Linear(0, 0, 1, 10);
 
+        [Space]
         [SerializeField]
-        float throwSpeed = 10;
+        float throwSpeedSmoothing = 0.1f;
+        [SerializeField]
+        float throwSpeedMultiplier = 10;
+
+        PlayerTouch currentStone;
 
         protected void OnValidate() {
             if (!touch) {
@@ -25,19 +30,35 @@ namespace MizuKiri.Player {
         }
 
         protected void OnEnable() {
-            touch.onTouch += HandleTouch;
+            touch.onTouchStart += HandleTouchStart;
+            touch.onTouchMove += HandleTouchMove;
+            touch.onTouchStop += HandleTouchStop;
         }
 
         protected void OnDisable() {
-            touch.onTouch -= HandleTouch;
+            touch.onTouchStart -= HandleTouchStart;
+            touch.onTouchMove -= HandleTouchMove;
+            touch.onTouchStop -= HandleTouchStop;
         }
 
-        void HandleTouch(PlayerTouch touch) {
-            var stone = spawner.SpawnStone();
-            var position2D = touch.positions[^1];
-            var position3D = new Vector3(position2D.x, position2D.y, cameraDistanceOverY.Evaluate(position2D.y / Screen.height));
-            stone.position = attachedCamera.ScreenToWorldPoint(position3D);
-            stone.AddForce(spawner.transform.forward * throwSpeed);
+        void HandleTouchStart(Vector2 position) {
+            if (currentStone == null) {
+                currentStone = new PlayerTouch(spawner.SpawnStone());
+            }
+        }
+        void HandleTouchMove(Vector2 position) {
+            currentStone?.AddPosition(TranslatePosition(position));
+        }
+        void HandleTouchStop(Vector2 position) {
+            if (currentStone != null) {
+                currentStone.AddPosition(TranslatePosition(position));
+                currentStone.Launch(throwSpeedSmoothing, throwSpeedMultiplier);
+                currentStone = null;
+            }
+        }
+
+        Vector3 TranslatePosition(Vector2 screenPosition) {
+            return attachedCamera.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, cameraDistanceOverY.Evaluate(screenPosition.y / Screen.height)));
         }
     }
 }

@@ -32,6 +32,10 @@ namespace MizuKiri {
             get => attachedRigidbody.position;
             set => attachedRigidbody.position = value;
         }
+        public bool isKinematic {
+            get => attachedRigidbody.isKinematic;
+            set => attachedRigidbody.isKinematic = value;
+        }
         public Vector2 velocity2D => attachedRigidbody.velocity.SwizzleXZ();
         public Vector3 velocity3D => attachedRigidbody.velocity;
         public Vector3 worldCenterOfMass => attachedRigidbody.worldCenterOfMass;
