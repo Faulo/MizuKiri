@@ -1,12 +1,8 @@
 {
-    "name": "MizuKiri",
+    "name": "MizuKiri.Input",
     "rootNamespace": "",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:507d80cf36f8258488bde8c39deefd3a",
-        "GUID:48c9f6afdac61634db0e0f241c7d4d51",
-        "GUID:a4f8a00530c9d0a4d8b39a00b37f0886"
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

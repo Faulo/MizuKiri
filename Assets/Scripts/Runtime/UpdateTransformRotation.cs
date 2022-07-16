@@ -1,12 +1,13 @@
+using MizuKiri.Player;
 using UnityEngine;
 
 namespace MizuKiri {
-    public class UpdateCameraRotation : MonoBehaviour {
+    public class UpdateTransformRotation : ComponentFeature<Transform> {
         [SerializeField]
         GyroInput gyro = default;
 
         protected void Update() {
-            transform.rotation = gyro.rotation;
+            observedComponent.rotation = gyro.rotation;
         }
     }
 }
