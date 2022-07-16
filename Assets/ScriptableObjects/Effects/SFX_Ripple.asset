@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5029155d8d3938a4fb5fe6c4d3d9980e, type: 3}
+  m_Name: SFX_Ripple
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8203137091425718751, guid: d68ed48420f7cac409d6e5405bf49e35, type: 3}
+  mixer: {fileID: -553291617966362228, guid: 1a653b45675603e4a86cee0453b114a8, type: 2}
+  minPitch: 1
+  maxPitch: 1.2
+  minVolume: 0.8
+  maxVolume: 1
+  offset: 0.08
+  clips:
+  - {fileID: 8300000, guid: 22f2effff33a63d41864bd9be2a6415f, type: 3}
+  - {fileID: 8300000, guid: 65f89d8ce63c299409ac665a304efbf1, type: 3}
+  - {fileID: 8300000, guid: 6e749ff0cb7455740920dcbef6281a48, type: 3}
+  - {fileID: 8300000, guid: 679ad1406210f014d92edfc3db1e4d0d, type: 3}
