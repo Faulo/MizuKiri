@@ -665,8 +665,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_observedComponent: {fileID: 864198308}
-  minimumSpeed: 10
+  onBounce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5216250299626891797, guid: 97b75f172affbee449845453093c7829,
+          type: 3}
+        m_TargetAssemblyTypeName: MizuKiri.ParticleController, MizuKiri
+        m_MethodName: Instantiate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDive:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5216250299626891797, guid: d2d642feb16ad2c4c89fb0c564085fbd,
+          type: 3}
+        m_TargetAssemblyTypeName: MizuKiri.ParticleController, MizuKiri
+        m_MethodName: Instantiate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  minimumHorizontalSpeed: 10
+  minimumVerticalSpeed: 2
   repelMultiplier: -1.5
+  repelMinimum: 2
   destroyTimeout: 1
 --- !u!1 &963194225
 GameObject:
