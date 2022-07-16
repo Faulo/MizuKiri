@@ -18,11 +18,12 @@ namespace MizuKiri.Player {
 
         public StoneThrow(Stone stone, Vector3 position, float smoothTime, float maxSpeed) {
             this.stone = stone;
-            currentPosition = targetPosition = position;
             this.smoothTime = smoothTime;
             this.maxSpeed = maxSpeed;
 
-            stone.isKinematic = true;
+            stone.freezePosition = true;
+
+            currentPosition = targetPosition = position;
         }
 
         public void FixedUpdate(float deltaTime) {
@@ -31,7 +32,7 @@ namespace MizuKiri.Player {
 
         public void Launch(Vector3 position, float multiplier) {
             currentPosition = targetPosition = position;
-            stone.isKinematic = false;
+            stone.freezePosition = false;
 
             stone.AddForce(multiplier * velocity);
         }

@@ -13,6 +13,14 @@ namespace MizuKiri {
                 attachedFilter.sharedMesh = value;
             }
         }
+
+        public bool freezePosition {
+            get => attachedRigidbody.constraints == RigidbodyConstraints.FreezePosition;
+            set => attachedRigidbody.constraints = value
+                ? RigidbodyConstraints.FreezePosition
+                : RigidbodyConstraints.None;
+        }
+
         [SerializeField]
         Mesh m_mesh = default;
 
@@ -29,8 +37,16 @@ namespace MizuKiri {
         MeshFilter attachedFilter = default;
 
         public Vector3 position {
-            get => attachedRigidbody.position;
-            set => attachedRigidbody.position = value;
+            get => freezePosition
+                ? transform.position
+                : attachedRigidbody.position;
+            set {
+                if (freezePosition) {
+                    transform.position = value;
+                } else {
+                    attachedRigidbody.position = value;
+                }
+            }
         }
         public bool isKinematic {
             get => attachedRigidbody.isKinematic;
@@ -62,6 +78,12 @@ namespace MizuKiri {
             }
             if (!attachedFilter) {
                 transform.TryGetComponentInChildren(out attachedFilter);
+            }
+        }
+
+        protected void Update() {
+            if (position.y < 0) {
+                Destroy(gameObject);
             }
         }
     }
