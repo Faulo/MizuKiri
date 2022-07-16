@@ -9,9 +9,9 @@ using UnityEngine.InputSystem.LowLevel;
 
 namespace MizuKiri {
     public class TouchInput : MonoBehaviour {
-        public event Action<Vector2> onTouchStart;
-        public event Action<Vector2> onTouchMove;
-        public event Action<Vector2> onTouchStop;
+        public event Action<Vector2, double> onTouchStart;
+        public event Action<Vector2, double> onTouchMove;
+        public event Action<Vector2, double> onTouchStop;
 
         PlayerControls controls;
 
@@ -38,10 +38,10 @@ namespace MizuKiri {
                 case UnityEngine.InputSystem.TouchPhase.Moved:
                 case UnityEngine.InputSystem.TouchPhase.Stationary:
                     if (isTouching) {
-                        onTouchMove?.Invoke(touch.position);
+                        onTouchMove?.Invoke(touch.position, obj.time);
                     } else {
                         isTouching = true;
-                        onTouchStart?.Invoke(touch.position);
+                        onTouchStart?.Invoke(touch.position, obj.time);
                     }
                     break;
                 case UnityEngine.InputSystem.TouchPhase.Ended:
@@ -49,7 +49,7 @@ namespace MizuKiri {
                 case UnityEngine.InputSystem.TouchPhase.None:
                     if (isTouching) {
                         isTouching = false;
-                        onTouchStop?.Invoke(touch.position);
+                        onTouchStop?.Invoke(touch.position, obj.time);
                     }
                     break;
                 default:
@@ -64,13 +64,13 @@ namespace MizuKiri {
         Vector2[] touchPositions = Array.Empty<Vector2>();
 
         IEnumerator SimulateTouch() {
-            onTouchStart?.Invoke(touchPositions[0]);
+            onTouchStart?.Invoke(touchPositions[0], Time.realtimeSinceStartupAsDouble);
             yield return null;
             for (int i = 1; i < touchPositions.Length - 1; i++) {
-                onTouchMove?.Invoke(touchPositions[i]);
+                onTouchMove?.Invoke(touchPositions[i], Time.realtimeSinceStartupAsDouble);
                 yield return null;
             }
-            onTouchMove?.Invoke(touchPositions[^1]);
+            onTouchMove?.Invoke(touchPositions[^1], Time.realtimeSinceStartupAsDouble);
         }
 
         [CustomEditor(typeof(TouchInput))]

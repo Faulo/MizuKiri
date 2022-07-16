@@ -14,9 +14,9 @@ namespace MizuKiri.Player {
             stone.isKinematic = true;
         }
 
-        public void AddPosition(Vector3 position) {
+        public void AddPosition(Vector3 position, double time) {
             stone.position = position;
-            positions.Add((position, Time.realtimeSinceStartupAsDouble));
+            positions.Add((position, time));
         }
 
         public void Launch(float smoothTime, float maxSpeed, float multiplier) {
@@ -36,5 +36,8 @@ namespace MizuKiri.Player {
             return velocity;
         }
 
+        public override string ToString() {
+            return $"positions: {positions.Count}";
+        }
     }
 }

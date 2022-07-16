@@ -212,9 +212,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  throwSpeedSmoothing: 0.1
-  throwSpeedMaximum: 100
-  throwSpeedMultiplier: 4
+  throwSpeedSmoothing: 0.2
+  throwSpeedMaximum: 1000
+  throwSpeedMultiplier: 10
 --- !u!1 &641005290
 GameObject:
   m_ObjectHideFlags: 0

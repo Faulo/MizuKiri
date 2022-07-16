@@ -10,6 +10,8 @@ namespace MizuKiri {
         [SerializeField]
         Stone currentStone = default;
 
+        PlayerTouch touch;
+
         protected void OnEnable() {
             player.onStartThrow += HandleThrow;
         }
@@ -18,6 +20,7 @@ namespace MizuKiri {
         }
 
         void HandleThrow(PlayerTouch obj) {
+            touch = obj;
             currentStone = obj.stone;
         }
 
@@ -27,7 +30,7 @@ namespace MizuKiri {
 
         void UpdateText() {
             if (observedComponent && currentStone) {
-                observedComponent.text = $"position: {currentStone.position}\nvelocity: {currentStone.velocity3D}";
+                observedComponent.text = $"position: {currentStone.position}\nvelocity: {currentStone.velocity3D}\n{touch}";
             } else {
                 observedComponent.text = "";
             }

@@ -46,18 +46,19 @@ namespace MizuKiri.Player {
             touch.onTouchStop -= HandleTouchStop;
         }
 
-        void HandleTouchStart(Vector2 position) {
+        void HandleTouchStart(Vector2 position, double time) {
             if (currentStone == null) {
                 currentStone = new PlayerTouch(spawner.SpawnStone());
+                currentStone.AddPosition(TranslatePosition(position), time);
                 onStartThrow?.Invoke(currentStone);
             }
         }
-        void HandleTouchMove(Vector2 position) {
-            currentStone?.AddPosition(TranslatePosition(position));
+        void HandleTouchMove(Vector2 position, double time) {
+            currentStone?.AddPosition(TranslatePosition(position), time);
         }
-        void HandleTouchStop(Vector2 position) {
+        void HandleTouchStop(Vector2 position, double time) {
             if (currentStone != null) {
-                currentStone.AddPosition(TranslatePosition(position));
+                currentStone.AddPosition(TranslatePosition(position), time);
                 currentStone.Launch(throwSpeedSmoothing, throwSpeedMaximum, throwSpeedMultiplier);
                 currentStone = null;
             }
