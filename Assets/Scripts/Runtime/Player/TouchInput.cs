@@ -37,13 +37,16 @@ namespace MizuKiri {
                 case UnityEngine.InputSystem.TouchPhase.Began:
                 case UnityEngine.InputSystem.TouchPhase.Moved:
                 case UnityEngine.InputSystem.TouchPhase.Stationary:
-                    if (!isTouching) {
+                    if (isTouching) {
+                        onTouchMove?.Invoke(touch.position);
+                    } else {
                         isTouching = true;
-                        onTouchStart?.Invoke(touch.startPosition);
+                        onTouchStart?.Invoke(touch.position);
                     }
-                    onTouchMove?.Invoke(touch.position);
                     break;
                 case UnityEngine.InputSystem.TouchPhase.Ended:
+                case UnityEngine.InputSystem.TouchPhase.Canceled:
+                case UnityEngine.InputSystem.TouchPhase.None:
                     if (isTouching) {
                         isTouching = false;
                         onTouchStop?.Invoke(touch.position);

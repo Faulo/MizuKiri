@@ -1,8 +1,11 @@
+using System;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace MizuKiri.Player {
     public class PlayerController : MonoBehaviour {
+        public event Action<PlayerTouch> onStartThrow;
+
         [SerializeField]
         TouchInput touch = default;
 
@@ -18,6 +21,8 @@ namespace MizuKiri.Player {
         [Space]
         [SerializeField]
         float throwSpeedSmoothing = 0.1f;
+        [SerializeField]
+        float throwSpeedMaximum = 1000;
         [SerializeField]
         float throwSpeedMultiplier = 10;
 
@@ -44,6 +49,7 @@ namespace MizuKiri.Player {
         void HandleTouchStart(Vector2 position) {
             if (currentStone == null) {
                 currentStone = new PlayerTouch(spawner.SpawnStone());
+                onStartThrow?.Invoke(currentStone);
             }
         }
         void HandleTouchMove(Vector2 position) {
@@ -52,7 +58,7 @@ namespace MizuKiri.Player {
         void HandleTouchStop(Vector2 position) {
             if (currentStone != null) {
                 currentStone.AddPosition(TranslatePosition(position));
-                currentStone.Launch(throwSpeedSmoothing, throwSpeedMultiplier);
+                currentStone.Launch(throwSpeedSmoothing, throwSpeedMaximum, throwSpeedMultiplier);
                 currentStone = null;
             }
         }

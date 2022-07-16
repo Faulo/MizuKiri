@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MizuKiri.Player {
     public class PlayerTouch {
 
-        readonly Stone stone;
+        public readonly Stone stone;
 
         readonly List<(Vector3 position, double time)> positions = new();
 
@@ -19,18 +19,19 @@ namespace MizuKiri.Player {
             positions.Add((position, Time.realtimeSinceStartupAsDouble));
         }
 
-        public void Launch(float smoothTime, float multiplier) {
+        public void Launch(float smoothTime, float maxSpeed, float multiplier) {
             stone.isKinematic = false;
 
-            stone.AddForce(multiplier * GetVelocity(smoothTime));
+            stone.AddForce(multiplier * GetVelocity(smoothTime, maxSpeed));
         }
 
-        Vector3 GetVelocity(float smoothTime) {
+        Vector3 GetVelocity(float smoothTime, float maxSpeed) {
             var velocity = Vector3.zero;
-            var acceleration = Vector3.zero;
+            var previous = positions[0];
             for (int i = 1; i < positions.Count; i++) {
-                var target = (positions[i].position - positions[i - 1].position) / (float)(positions[i].time - positions[i - 1].time);
-                velocity = Vector3.SmoothDamp(velocity, target, ref acceleration, smoothTime, float.PositiveInfinity, Time.fixedDeltaTime);
+                var current = positions[i];
+                Vector3.SmoothDamp(previous.position, current.position, ref velocity, smoothTime, maxSpeed, (float)(current.time - previous.time));
+                previous = current;
             }
             return velocity;
         }
