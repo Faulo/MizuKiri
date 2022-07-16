@@ -15,10 +15,28 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "TouchPress",
+                    "type": "PassThrough",
+                    "id": "3b633cf6-a099-4be2-a878-ba07dc0ffa7e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TouchPosition",
+                    "type": "PassThrough",
+                    "id": "4ceec40e-8dfa-4596-9653-ce77f70d2b19",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Gyro",
                     "type": "Value",
                     "id": "e07c5947-e942-4cdf-9cbb-b57e306c46bc",
-                    "expectedControlType": "Quaternion",
+                    "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -38,8 +56,30 @@
                 },
                 {
                     "name": "",
+                    "id": "ec640f08-3a22-4fe6-abe0-27a39c087a22",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "659309c3-e1ae-4a53-b160-2a6a44086f8a",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1cf1db45-2328-4786-90a5-533b78632a76",
-                    "path": "<AttitudeSensor>/attitude",
+                    "path": "<Gyroscope>/angularVelocity",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

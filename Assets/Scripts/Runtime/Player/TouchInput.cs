@@ -18,6 +18,8 @@ namespace MizuKiri {
         protected void OnEnable() {
             controls = new();
             controls.Player.Touch.performed += HandleTouch;
+            controls.Player.TouchPress.performed += HandleTouchPress;
+            controls.Player.TouchPosition.performed += HandleTouchPosition;
             controls.Enable();
         }
 
@@ -31,30 +33,53 @@ namespace MizuKiri {
 
         bool isTouching = false;
 
+        void HandleTouchPress(InputAction.CallbackContext obj) {
+            bool isPressed = obj.ReadValueAsButton();
+            if (isPressed) {
+                ContinueTouch(controls.Player.TouchPosition.ReadValue<Vector2>(), obj.time);
+            } else {
+                StopTouch(controls.Player.TouchPosition.ReadValue<Vector2>(), obj.time);
+            }
+        }
+
+        void HandleTouchPosition(InputAction.CallbackContext obj) {
+            if (isTouching) {
+                ContinueTouch(obj.ReadValue<Vector2>(), obj.time);
+            }
+        }
+
         void HandleTouch(InputAction.CallbackContext obj) {
             var touch = obj.ReadValue<TouchState>();
             switch (touch.phase) {
                 case UnityEngine.InputSystem.TouchPhase.Began:
                 case UnityEngine.InputSystem.TouchPhase.Moved:
                 case UnityEngine.InputSystem.TouchPhase.Stationary:
-                    if (isTouching) {
-                        onTouchMove?.Invoke(touch.position, obj.time);
-                    } else {
-                        isTouching = true;
-                        onTouchStart?.Invoke(touch.position, obj.time);
-                    }
+                    ContinueTouch(touch.position, obj.time);
                     break;
                 case UnityEngine.InputSystem.TouchPhase.Ended:
                 case UnityEngine.InputSystem.TouchPhase.Canceled:
                 case UnityEngine.InputSystem.TouchPhase.None:
-                    if (isTouching) {
-                        isTouching = false;
-                        onTouchStop?.Invoke(touch.position, obj.time);
-                    }
+                    StopTouch(touch.position, obj.time);
                     break;
                 default:
                     Debug.Log($"Unknown touch phase: {touch.phase}");
                     break;
+            }
+        }
+
+        void ContinueTouch(Vector2 position, double time) {
+            if (isTouching) {
+                onTouchMove?.Invoke(position, time);
+            } else {
+                isTouching = true;
+                onTouchStart?.Invoke(position, time);
+            }
+        }
+
+        void StopTouch(Vector2 position, double time) {
+            if (isTouching) {
+                isTouching = false;
+                onTouchStop?.Invoke(position, time);
             }
         }
 

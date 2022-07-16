@@ -39,10 +39,28 @@ namespace MizuKiri.Input
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""TouchPress"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""3b633cf6-a099-4be2-a878-ba07dc0ffa7e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TouchPosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4ceec40e-8dfa-4596-9653-ce77f70d2b19"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Gyro"",
                     ""type"": ""Value"",
                     ""id"": ""e07c5947-e942-4cdf-9cbb-b57e306c46bc"",
-                    ""expectedControlType"": ""Quaternion"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -62,8 +80,30 @@ namespace MizuKiri.Input
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ec640f08-3a22-4fe6-abe0-27a39c087a22"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""659309c3-e1ae-4a53-b160-2a6a44086f8a"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""1cf1db45-2328-4786-90a5-533b78632a76"",
-                    ""path"": ""<AttitudeSensor>/attitude"",
+                    ""path"": ""<Gyroscope>/angularVelocity"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -79,6 +119,8 @@ namespace MizuKiri.Input
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Touch = m_Player.FindAction("Touch", throwIfNotFound: true);
+            m_Player_TouchPress = m_Player.FindAction("TouchPress", throwIfNotFound: true);
+            m_Player_TouchPosition = m_Player.FindAction("TouchPosition", throwIfNotFound: true);
             m_Player_Gyro = m_Player.FindAction("Gyro", throwIfNotFound: true);
         }
 
@@ -140,12 +182,16 @@ namespace MizuKiri.Input
         private readonly InputActionMap m_Player;
         private IPlayerActions m_PlayerActionsCallbackInterface;
         private readonly InputAction m_Player_Touch;
+        private readonly InputAction m_Player_TouchPress;
+        private readonly InputAction m_Player_TouchPosition;
         private readonly InputAction m_Player_Gyro;
         public struct PlayerActions
         {
             private @PlayerControls m_Wrapper;
             public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Touch => m_Wrapper.m_Player_Touch;
+            public InputAction @TouchPress => m_Wrapper.m_Player_TouchPress;
+            public InputAction @TouchPosition => m_Wrapper.m_Player_TouchPosition;
             public InputAction @Gyro => m_Wrapper.m_Player_Gyro;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
@@ -159,6 +205,12 @@ namespace MizuKiri.Input
                     @Touch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
                     @Touch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
                     @Touch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
+                    @TouchPress.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
+                    @TouchPress.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
+                    @TouchPress.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
+                    @TouchPosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
+                    @TouchPosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
+                    @TouchPosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
                     @Gyro.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGyro;
                     @Gyro.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGyro;
                     @Gyro.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGyro;
@@ -169,6 +221,12 @@ namespace MizuKiri.Input
                     @Touch.started += instance.OnTouch;
                     @Touch.performed += instance.OnTouch;
                     @Touch.canceled += instance.OnTouch;
+                    @TouchPress.started += instance.OnTouchPress;
+                    @TouchPress.performed += instance.OnTouchPress;
+                    @TouchPress.canceled += instance.OnTouchPress;
+                    @TouchPosition.started += instance.OnTouchPosition;
+                    @TouchPosition.performed += instance.OnTouchPosition;
+                    @TouchPosition.canceled += instance.OnTouchPosition;
                     @Gyro.started += instance.OnGyro;
                     @Gyro.performed += instance.OnGyro;
                     @Gyro.canceled += instance.OnGyro;
@@ -179,6 +237,8 @@ namespace MizuKiri.Input
         public interface IPlayerActions
         {
             void OnTouch(InputAction.CallbackContext context);
+            void OnTouchPress(InputAction.CallbackContext context);
+            void OnTouchPosition(InputAction.CallbackContext context);
             void OnGyro(InputAction.CallbackContext context);
         }
     }

@@ -103,7 +103,7 @@ namespace MizuKiri {
         }
 
         protected void FixedUpdate() {
-            if (attachedRigidbody.IsSleeping() || position.y < 0) {
+            if (position.y < 0 || (bounces > 0 && attachedRigidbody.IsSleeping())) {
                 Destroy(gameObject);
                 return;
             }

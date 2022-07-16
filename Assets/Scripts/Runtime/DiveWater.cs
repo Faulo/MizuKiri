@@ -25,16 +25,6 @@ namespace MizuKiri {
                 ProcessStone(stone);
             }
         }
-        protected void OnTriggerStay(Collider collider) {
-            if (collider.TryGetComponent<Stone>(out var stone)) {
-                ProcessStone(stone);
-            }
-        }
-        protected void OnTriggerExit(Collider collider) {
-            if (collider.TryGetComponent<Stone>(out var stone)) {
-                stone.canDive = true;
-            }
-        }
 
         void ProcessStone(Stone stone) {
             if (stone.canDive) {

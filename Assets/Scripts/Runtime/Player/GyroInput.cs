@@ -26,12 +26,12 @@ namespace MizuKiri.Player {
         }
 
         void HandleInput(InputAction.CallbackContext obj) {
-            Debug.Log(obj);
+            Debug.Log(obj.ReadValue<Vector3>());
         }
 
         protected void Update() {
             if (controls.Player.Gyro.enabled) {
-                rotation = GetGyroRotation();
+                //rotation = GetGyroRotation();
             }
         }
 
