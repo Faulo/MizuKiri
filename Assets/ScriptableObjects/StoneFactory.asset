@@ -8198,6 +8198,11 @@ MonoBehaviour:
   - {fileID: 9196490176536027380}
   - {fileID: 49845944684738834}
   - {fileID: -3469597316339538210}
+  materials:
+  - rendering: {fileID: 2100000, guid: 7fffc037a32cd7646854f6fa70c179f9, type: 2}
+    physics: {fileID: 13400000, guid: f268d0a6c5641324da646387201556e1, type: 2}
+  - rendering: {fileID: 2100000, guid: 97b8f4c1654a72e46b3edce36f79d046, type: 2}
+    physics: {fileID: 13400000, guid: f268d0a6c5641324da646387201556e1, type: 2}
   stonesToPrepare: 100
   triangleCount: 10
   bakePhysicsMesh: 0

@@ -20,10 +20,25 @@ namespace MizuKiri {
 
             public Vector3 randomVertex => Vector3.Scale(UnityEngine.Random.insideUnitSphere, scale);
         }
+        [Serializable]
+        class MaterialSetting {
+            [SerializeField, Expandable]
+            Material rendering = default;
+            [SerializeField, Expandable]
+            PhysicMaterial physics = default;
+
+            public (Material rendering, PhysicMaterial physics) tuple => (rendering, physics);
+        }
+
         [SerializeField, ReadOnly]
         Mesh[] meshes = Array.Empty<Mesh>();
 
+        [SerializeField]
+        MaterialSetting[] materials = Array.Empty<MaterialSetting>();
+
         public Mesh randomMesh => meshes.RandomElement();
+
+        public (Material rendering, PhysicMaterial physics) randomMaterials => materials.RandomElement().tuple;
 
 #if UNITY_EDITOR
         [Header("Factory settings")]

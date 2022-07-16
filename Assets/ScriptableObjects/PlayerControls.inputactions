@@ -12,16 +12,16 @@
                     "expectedControlType": "Touch",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Gyro",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "e07c5947-e942-4cdf-9cbb-b57e306c46bc",
                     "expectedControlType": "Quaternion",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

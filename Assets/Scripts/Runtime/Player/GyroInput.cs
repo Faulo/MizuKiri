@@ -13,6 +13,7 @@ namespace MizuKiri.Player {
             controls = new();
             controls.Player.Gyro.started += HandleInput;
             controls.Player.Gyro.performed += HandleInput;
+            controls.Player.Gyro.canceled += HandleInput;
             controls.Enable();
         }
 

@@ -1,24 +1,24 @@
+using System;
 using MizuKiri.Input;
+using MizuKiri.Player;
+using Slothsoft.UnityExtensions;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace MizuKiri {
     public class TouchInput : MonoBehaviour {
-        [field: SerializeField]
-        public Vector2 position { get; private set; }
+        public event Action<PlayerTouch> onTouch;
 
         PlayerControls controls;
 
+        PlayerTouch currentTouch;
+
         protected void OnEnable() {
             controls = new();
-            controls.Player.Touch.started += HandleStart;
-            controls.Player.Touch.performed += HandleStart;
+            controls.Player.Touch.performed += HandleTouch;
             controls.Enable();
-        }
-
-        void HandleStart(InputAction.CallbackContext obj) {
-            Debug.Log(obj);
-            UpdateField(obj.ReadValue<Touch>());
         }
 
         protected void OnDisable() {
@@ -29,11 +29,52 @@ namespace MizuKiri {
             }
         }
 
-        protected void Update() {
+        void HandleTouch(InputAction.CallbackContext obj) {
+            var touch = obj.ReadValue<TouchState>();
+            switch (touch.phase) {
+                case UnityEngine.InputSystem.TouchPhase.Began:
+                case UnityEngine.InputSystem.TouchPhase.Moved:
+                case UnityEngine.InputSystem.TouchPhase.Stationary:
+                    if (currentTouch == null) {
+                        currentTouch = new();
+                    }
+                    AddTouch(touch);
+                    break;
+                case UnityEngine.InputSystem.TouchPhase.Ended:
+                    if (currentTouch == null) {
+                        break;
+                    }
+                    AddTouch(touch);
+                    onTouch?.Invoke(currentTouch);
+                    currentTouch = null;
+                    break;
+                default:
+                    Debug.Log($"Unknown touch phase: {touch.phase}");
+                    break;
+            }
         }
 
-        void UpdateField(Touch touch) {
-            position = touch.position;
+        void AddTouch(in TouchState touch) {
+            currentTouch.positions.Add(touch.position);
         }
+
+#if UNITY_EDITOR
+        [Header("Simulate touch")]
+        [SerializeField]
+        Vector2[] touchPositions = Array.Empty<Vector2>();
+
+        void SimulateTouch() {
+            var touch = new PlayerTouch();
+            touch.positions.AddRange(touchPositions);
+            onTouch?.Invoke(touch);
+        }
+
+        [CustomEditor(typeof(TouchInput))]
+        class TouchInputEditor : RuntimeEditorTools<TouchInput> {
+            protected override void DrawEditorTools() {
+                DrawButton("Simulate Touch", target.SimulateTouch);
+            }
+        }
+#endif
     }
 }

@@ -17,6 +17,12 @@ namespace MizuKiri {
         protected virtual void SetUpComponents() {
             if (!m_observedComponent) {
                 TryGetComponent(out m_observedComponent);
+                if (!m_observedComponent) {
+                    transform.TryGetComponentInParent(out m_observedComponent);
+                    if (!m_observedComponent) {
+                        transform.TryGetComponentInChildren(out m_observedComponent);
+                    }
+                }
             }
         }
     }

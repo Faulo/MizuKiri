@@ -8,7 +8,7 @@ namespace MizuKiri {
         StoneFactory factory = default;
 
         [SerializeField, Expandable]
-        GameObject prefab = default;
+        Stone prefab = default;
 
         [SerializeField]
         float spawnInterval = 1;
@@ -20,19 +20,13 @@ namespace MizuKiri {
             }
         }
 
-        void SpawnStone() {
-            var obj = Instantiate(prefab, transform.position, Random.rotation);
+        public Stone SpawnStone() {
+            var stone = Instantiate(prefab, transform.position, Random.rotation);
 
-            var filter = obj.GetComponent<MeshFilter>();
-            var collider = obj.GetComponent<MeshCollider>();
-            var renderer = obj.GetComponent<MeshRenderer>();
-            var rigidbody = obj.GetComponent<Rigidbody>();
+            stone.mesh = factory.randomMesh;
+            stone.materials = factory.randomMaterials;
 
-
-            var mesh = factory.randomMesh;
-
-            filter.sharedMesh = mesh;
-            collider.sharedMesh = mesh;
+            return stone;
         }
 
         protected void OnDrawGizmos() {
