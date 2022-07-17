@@ -53,7 +53,8 @@ namespace MizuKiri.Player {
         }
 
         void ProcessGravity(Vector3 gravity) {
-            var rotation = Quaternion.LookRotation(correctionRotation * -gravity).eulerAngles;
+            var rotation = (correctionRotation * Quaternion.LookRotation(-gravity)).eulerAngles;
+
             look.x = rotation.y;
             look.y = rotation.x;
 
