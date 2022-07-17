@@ -81,8 +81,20 @@ namespace MizuKiri.Player {
             }
         }
 
-        Vector3 TranslatePosition(Vector2 screenPosition) {
-            return attachedCamera.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, cameraDistanceOverY.Evaluate(screenPosition.y / Screen.height)));
+        [SerializeField]
+        float groundOffset = 1;
+
+        [SerializeField]
+        LayerMask groundLayers = default;
+
+        Vector3 TranslatePosition(Vector2 screenPosition2D) {
+            float maxDistance = cameraDistanceOverY.Evaluate(screenPosition2D.y / Screen.height);
+            var screenPosition3D = new Vector3(screenPosition2D.x, screenPosition2D.y, cameraDistanceOverY.Evaluate(screenPosition2D.y / Screen.height));
+            var ray = attachedCamera.ScreenPointToRay(screenPosition3D);
+            if (Physics.Raycast(ray, out var info, maxDistance + groundOffset, groundLayers, QueryTriggerInteraction.Collide)) {
+                maxDistance = info.distance - groundOffset;
+            }
+            return ray.GetPoint(maxDistance);
         }
 
         void HandleRotate(Quaternion rotation) {

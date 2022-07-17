@@ -26,7 +26,7 @@ namespace MizuKiri.Input
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""Touch"",
             ""id"": ""5dd9f3a8-335d-4e5d-9b02-c6d7ea7bf22c"",
             ""actions"": [
                 {
@@ -45,22 +45,13 @@ namespace MizuKiri.Input
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""TouchPosition"",
                     ""type"": ""PassThrough"",
                     ""id"": ""4ceec40e-8dfa-4596-9653-ce77f70d2b19"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Gyro"",
-                    ""type"": ""Value"",
-                    ""id"": ""e07c5947-e942-4cdf-9cbb-b57e306c46bc"",
-                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -99,15 +90,32 @@ namespace MizuKiri.Input
                     ""action"": ""TouchPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""Gyro"",
+            ""id"": ""84dde7e3-5a1e-436c-83de-c198249b25c0"",
+            ""actions"": [
+                {
+                    ""name"": ""Sensor"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""488eccc2-7cf9-48ff-a4a6-f304a2c2c3e4"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""1cf1db45-2328-4786-90a5-533b78632a76"",
+                    ""id"": ""a956b2b4-dde1-4558-9565-83e6264e9042"",
                     ""path"": ""<GravitySensor>/gravity"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Gyro"",
+                    ""action"": ""Sensor"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -116,12 +124,14 @@ namespace MizuKiri.Input
     ],
     ""controlSchemes"": []
 }");
-            // Player
-            m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-            m_Player_Touch = m_Player.FindAction("Touch", throwIfNotFound: true);
-            m_Player_TouchPress = m_Player.FindAction("TouchPress", throwIfNotFound: true);
-            m_Player_TouchPosition = m_Player.FindAction("TouchPosition", throwIfNotFound: true);
-            m_Player_Gyro = m_Player.FindAction("Gyro", throwIfNotFound: true);
+            // Touch
+            m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
+            m_Touch_Touch = m_Touch.FindAction("Touch", throwIfNotFound: true);
+            m_Touch_TouchPress = m_Touch.FindAction("TouchPress", throwIfNotFound: true);
+            m_Touch_TouchPosition = m_Touch.FindAction("TouchPosition", throwIfNotFound: true);
+            // Gyro
+            m_Gyro = asset.FindActionMap("Gyro", throwIfNotFound: true);
+            m_Gyro_Sensor = m_Gyro.FindAction("Sensor", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -178,44 +188,39 @@ namespace MizuKiri.Input
             return asset.FindBinding(bindingMask, out action);
         }
 
-        // Player
-        private readonly InputActionMap m_Player;
-        private IPlayerActions m_PlayerActionsCallbackInterface;
-        private readonly InputAction m_Player_Touch;
-        private readonly InputAction m_Player_TouchPress;
-        private readonly InputAction m_Player_TouchPosition;
-        private readonly InputAction m_Player_Gyro;
-        public struct PlayerActions
+        // Touch
+        private readonly InputActionMap m_Touch;
+        private ITouchActions m_TouchActionsCallbackInterface;
+        private readonly InputAction m_Touch_Touch;
+        private readonly InputAction m_Touch_TouchPress;
+        private readonly InputAction m_Touch_TouchPosition;
+        public struct TouchActions
         {
             private @PlayerControls m_Wrapper;
-            public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Touch => m_Wrapper.m_Player_Touch;
-            public InputAction @TouchPress => m_Wrapper.m_Player_TouchPress;
-            public InputAction @TouchPosition => m_Wrapper.m_Player_TouchPosition;
-            public InputAction @Gyro => m_Wrapper.m_Player_Gyro;
-            public InputActionMap Get() { return m_Wrapper.m_Player; }
+            public TouchActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Touch => m_Wrapper.m_Touch_Touch;
+            public InputAction @TouchPress => m_Wrapper.m_Touch_TouchPress;
+            public InputAction @TouchPosition => m_Wrapper.m_Touch_TouchPosition;
+            public InputActionMap Get() { return m_Wrapper.m_Touch; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-            public void SetCallbacks(IPlayerActions instance)
+            public static implicit operator InputActionMap(TouchActions set) { return set.Get(); }
+            public void SetCallbacks(ITouchActions instance)
             {
-                if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+                if (m_Wrapper.m_TouchActionsCallbackInterface != null)
                 {
-                    @Touch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
-                    @Touch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
-                    @Touch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
-                    @TouchPress.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
-                    @TouchPress.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
-                    @TouchPress.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
-                    @TouchPosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
-                    @TouchPosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
-                    @TouchPosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
-                    @Gyro.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGyro;
-                    @Gyro.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGyro;
-                    @Gyro.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGyro;
+                    @Touch.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouch;
+                    @Touch.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouch;
+                    @Touch.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouch;
+                    @TouchPress.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPress;
+                    @TouchPress.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPress;
+                    @TouchPress.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPress;
+                    @TouchPosition.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPosition;
+                    @TouchPosition.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPosition;
+                    @TouchPosition.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPosition;
                 }
-                m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+                m_Wrapper.m_TouchActionsCallbackInterface = instance;
                 if (instance != null)
                 {
                     @Touch.started += instance.OnTouch;
@@ -227,19 +232,52 @@ namespace MizuKiri.Input
                     @TouchPosition.started += instance.OnTouchPosition;
                     @TouchPosition.performed += instance.OnTouchPosition;
                     @TouchPosition.canceled += instance.OnTouchPosition;
-                    @Gyro.started += instance.OnGyro;
-                    @Gyro.performed += instance.OnGyro;
-                    @Gyro.canceled += instance.OnGyro;
                 }
             }
         }
-        public PlayerActions @Player => new PlayerActions(this);
-        public interface IPlayerActions
+        public TouchActions @Touch => new TouchActions(this);
+
+        // Gyro
+        private readonly InputActionMap m_Gyro;
+        private IGyroActions m_GyroActionsCallbackInterface;
+        private readonly InputAction m_Gyro_Sensor;
+        public struct GyroActions
+        {
+            private @PlayerControls m_Wrapper;
+            public GyroActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Sensor => m_Wrapper.m_Gyro_Sensor;
+            public InputActionMap Get() { return m_Wrapper.m_Gyro; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(GyroActions set) { return set.Get(); }
+            public void SetCallbacks(IGyroActions instance)
+            {
+                if (m_Wrapper.m_GyroActionsCallbackInterface != null)
+                {
+                    @Sensor.started -= m_Wrapper.m_GyroActionsCallbackInterface.OnSensor;
+                    @Sensor.performed -= m_Wrapper.m_GyroActionsCallbackInterface.OnSensor;
+                    @Sensor.canceled -= m_Wrapper.m_GyroActionsCallbackInterface.OnSensor;
+                }
+                m_Wrapper.m_GyroActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Sensor.started += instance.OnSensor;
+                    @Sensor.performed += instance.OnSensor;
+                    @Sensor.canceled += instance.OnSensor;
+                }
+            }
+        }
+        public GyroActions @Gyro => new GyroActions(this);
+        public interface ITouchActions
         {
             void OnTouch(InputAction.CallbackContext context);
             void OnTouchPress(InputAction.CallbackContext context);
             void OnTouchPosition(InputAction.CallbackContext context);
-            void OnGyro(InputAction.CallbackContext context);
+        }
+        public interface IGyroActions
+        {
+            void OnSensor(InputAction.CallbackContext context);
         }
     }
 }

@@ -9,8 +9,6 @@ namespace MizuKiri {
         float diveDrag = 10;
         [SerializeField]
         float diveVelocity = 0;
-        [SerializeField]
-        float destroyTimeout = 1;
 
         [Space]
         [SerializeField, Expandable]

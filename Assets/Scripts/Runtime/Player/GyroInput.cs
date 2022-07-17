@@ -16,11 +16,9 @@ namespace MizuKiri.Player {
             controls = new();
             if (GravitySensor.current != null) {
                 InputSystem.EnableDevice(GravitySensor.current);
-                controls.Player.Gyro.started += HandleInput;
-                controls.Player.Gyro.performed += HandleInput;
-                controls.Player.Gyro.canceled += HandleInput;
+                controls.Gyro.Sensor.performed += HandleInput;
             }
-            controls.Enable();
+            controls.Gyro.Enable();
         }
 
         protected void OnDisable() {
@@ -28,14 +26,14 @@ namespace MizuKiri.Player {
                 if (GravitySensor.current != null) {
                     InputSystem.DisableDevice(GravitySensor.current);
                 }
-                controls.Disable();
+                controls.Gyro.Disable();
                 controls.Dispose();
                 controls = null;
             }
         }
 
         void HandleInput(InputAction.CallbackContext obj) {
-            Debug.Log(obj.ReadValue<Vector3>());
+            ProcessGravity(obj.ReadValue<Vector3>());
         }
 
         [Space]

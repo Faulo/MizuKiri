@@ -43,6 +43,8 @@ namespace MizuKiri {
         int bounceLayer = 0;
         [SerializeField, Layer]
         int diveLayer = 0;
+        [SerializeField, Layer]
+        int throwLayer = 0;
 
         public Vector3 position {
             get => freezePosition
@@ -107,9 +109,11 @@ namespace MizuKiri {
                 Destroy(gameObject);
                 return;
             }
-            gameObject.layer = velocity2D.magnitude > speedThreshold
-                ? bounceLayer
-                : diveLayer;
+            gameObject.layer = isKinematic
+                ? throwLayer
+                : velocity2D.magnitude > speedThreshold
+                    ? bounceLayer
+                    : diveLayer;
         }
     }
 }

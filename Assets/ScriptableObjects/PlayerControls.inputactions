@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Player",
+            "name": "Touch",
             "id": "5dd9f3a8-335d-4e5d-9b02-c6d7ea7bf22c",
             "actions": [
                 {
@@ -21,22 +21,13 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "TouchPosition",
                     "type": "PassThrough",
                     "id": "4ceec40e-8dfa-4596-9653-ce77f70d2b19",
                     "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Gyro",
-                    "type": "Value",
-                    "id": "e07c5947-e942-4cdf-9cbb-b57e306c46bc",
-                    "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -75,15 +66,32 @@
                     "action": "TouchPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "Gyro",
+            "id": "84dde7e3-5a1e-436c-83de-c198249b25c0",
+            "actions": [
+                {
+                    "name": "Sensor",
+                    "type": "PassThrough",
+                    "id": "488eccc2-7cf9-48ff-a4a6-f304a2c2c3e4",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "1cf1db45-2328-4786-90a5-533b78632a76",
+                    "id": "a956b2b4-dde1-4558-9565-83e6264e9042",
                     "path": "<GravitySensor>/gravity",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Gyro",
+                    "action": "Sensor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

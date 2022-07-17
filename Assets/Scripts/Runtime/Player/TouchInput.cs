@@ -17,15 +17,15 @@ namespace MizuKiri {
 
         protected void OnEnable() {
             controls = new();
-            controls.Player.Touch.performed += HandleTouch;
-            controls.Player.TouchPress.performed += HandleTouchPress;
-            controls.Player.TouchPosition.performed += HandleTouchPosition;
-            controls.Enable();
+            controls.Touch.Touch.performed += HandleTouch;
+            controls.Touch.TouchPress.performed += HandleTouchPress;
+            controls.Touch.TouchPosition.performed += HandleTouchPosition;
+            controls.Touch.Enable();
         }
 
         protected void OnDisable() {
             if (controls != null) {
-                controls.Disable();
+                controls.Touch.Disable();
                 controls.Dispose();
                 controls = null;
             }
@@ -36,9 +36,9 @@ namespace MizuKiri {
         void HandleTouchPress(InputAction.CallbackContext obj) {
             bool isPressed = obj.ReadValueAsButton();
             if (isPressed) {
-                ContinueTouch(controls.Player.TouchPosition.ReadValue<Vector2>(), obj.time);
+                ContinueTouch(controls.Touch.TouchPosition.ReadValue<Vector2>(), obj.time);
             } else {
-                StopTouch(controls.Player.TouchPosition.ReadValue<Vector2>(), obj.time);
+                StopTouch(controls.Touch.TouchPosition.ReadValue<Vector2>(), obj.time);
             }
         }
 
