@@ -18,3 +18,4 @@ Summer Game Jam 2022:
 - [gmegas's Lake ambience](https://freesound.org/people/gmegas/sounds/339003/)
 - [giddster's Water splash & drops 2](https://freesound.org/people/giddster/sounds/386440/)
 - [InspectorJ's Water Swirl](https://freesound.org/people/InspectorJ/packs/22432/)
+- [Kinuta Font Factory's Yuji Boku](https://fonts.google.com/specimen/Yuji+Boku)
