@@ -11376,6 +11376,11 @@ MonoBehaviour:
   attachedCameraHead: {fileID: 963194228}
   attachedCamera: {fileID: 963194227}
   factory: {fileID: 11400000, guid: 4836699247831f642adc687c60bcabff, type: 2}
+  useStoneStorage: 1
+  maxStorageDistance: 1000
+  storageLayers:
+    serializedVersion: 2
+    m_Bits: 128
   cameraDistanceOverY:
     serializedVersion: 2
     m_Curve:

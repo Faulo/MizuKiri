@@ -26,6 +26,12 @@ namespace MizuKiri.Player {
 
         [Header("Pointing")]
         [SerializeField]
+        bool useStoneStorage = true;
+        [SerializeField]
+        float maxStorageDistance = 1000;
+        [SerializeField]
+        LayerMask storageLayers = default;
+        [SerializeField]
         AnimationCurve cameraDistanceOverY = AnimationCurve.Linear(0, 0, 1, 10);
 
         [Header("Throwing")]
@@ -70,10 +76,16 @@ namespace MizuKiri.Player {
 
         void HandleTouchStart(Vector2 position, double time) {
             if (currentStone == null) {
-                currentStone = new StoneThrow(factory.InstantiateStone(TranslatePosition(position)), throwSpeedSmoothing, throwSpeedMaximum);
-                onStartThrow?.Invoke(currentStone);
+                var stone = useStoneStorage
+                    ? FindStoneOnScreen(position)
+                    : factory.InstantiateStone(TranslatePosition(position));
+                if (stone) {
+                    currentStone = new StoneThrow(stone, throwSpeedSmoothing, throwSpeedMaximum);
+                    onStartThrow?.Invoke(currentStone);
+                }
             }
         }
+
         void HandleTouchMove(Vector2 position, double time) {
             if (currentStone != null) {
                 currentStone.targetPosition = TranslatePosition(position);
@@ -100,6 +112,14 @@ namespace MizuKiri.Player {
                 maxDistance = info.distance - groundOffset;
             }
             return ray.GetPoint(maxDistance);
+        }
+
+        Stone FindStoneOnScreen(Vector2 screenPosition2D) {
+            var ray = attachedCamera.ScreenPointToRay(screenPosition2D.SwizzleXY());
+            if (Physics.Raycast(ray, out var info, maxStorageDistance, storageLayers, QueryTriggerInteraction.Ignore)) {
+                return info.collider.GetComponent<Stone>();
+            }
+            return null;
         }
 
         void HandleRotate(Quaternion bodyRotation, Quaternion headRotation) {

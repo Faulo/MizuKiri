@@ -78,7 +78,7 @@ namespace MizuKiri.Player {
 
         void ContinueClick() {
             isTouching = true;
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_EDITOR
             Cursor.lockState = CursorLockMode.Locked;
 #endif
         }
@@ -92,7 +92,7 @@ namespace MizuKiri.Player {
 
         void StopClick() {
             isTouching = false;
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_EDITOR
             Cursor.lockState = CursorLockMode.None;
 #endif
         }
