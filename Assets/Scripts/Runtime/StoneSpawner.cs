@@ -11,12 +11,18 @@ namespace MizuKiri {
         StoneFactory factory = default;
 
         [SerializeField]
+        int spawnCount = 100;
+        [SerializeField]
         float spawnInterval = 1;
         [SerializeField]
         float spawnRadius = 1;
 
-        protected IEnumerator Start() {
-            while (true) {
+        public void SpawnStones() {
+            StartCoroutine(SpawnStones_Co());
+        }
+
+        IEnumerator SpawnStones_Co() {
+            for (int i = 0; i < spawnCount; i++) {
                 SpawnStone();
                 yield return Wait.forSeconds[spawnInterval];
             }
@@ -34,14 +40,12 @@ namespace MizuKiri {
 
 #if UNITY_EDITOR
         [SerializeField]
-        int stoneCount = 100;
-        [SerializeField]
         PhysicsStepper physics = default;
         [SerializeField]
         DiveWater diveWater = default;
 
-        IEnumerator SpawnStones() {
-            for (int i = 0; i < stoneCount; i++) {
+        IEnumerator SpawnStoneWithPhysicss_Co() {
+            for (int i = 0; i < spawnCount; i++) {
                 SpawnStone();
                 if (physics) {
                     yield return physics.Simulate();
@@ -62,7 +66,7 @@ namespace MizuKiri {
         class StoneSpawnerEditor : RuntimeEditorTools<StoneSpawner> {
             protected override void DrawEditorTools() {
                 DrawButton("Spawn Stone", target.SpawnStone);
-                DrawButton("Spawn Stones", target.SpawnStones);
+                DrawButton("Spawn Stones", target.SpawnStoneWithPhysicss_Co);
                 DrawButton("Cull invalid!", target.CullInvalid);
             }
         }
