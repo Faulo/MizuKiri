@@ -42,7 +42,8 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 11400000, guid: b8063309558c8474eaa36b7d86508c36,
       type: 2}
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - Standalone
   - serializedVersion: 2
     name: Ultra
     pixelLightCount: 4
@@ -79,7 +80,10 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 11400000, guid: 717c6f23b5be2b84dbb5c9b0c46a95fa,
       type: 2}
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - Server
+    - Android
+    - WebGL
   m_PerPlatformDefaultQuality:
     Android: 0
     Lumin: 1
