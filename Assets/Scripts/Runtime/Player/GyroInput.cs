@@ -78,7 +78,9 @@ namespace MizuKiri.Player {
 
         void ContinueClick() {
             isTouching = true;
+#if UNITY_STANDALONE
             Cursor.lockState = CursorLockMode.Locked;
+#endif
         }
 
         void ProcessDelta(Vector2 delta) {
@@ -90,7 +92,9 @@ namespace MizuKiri.Player {
 
         void StopClick() {
             isTouching = false;
+#if UNITY_STANDALONE
             Cursor.lockState = CursorLockMode.None;
+#endif
         }
 
         void UpdateLook() {

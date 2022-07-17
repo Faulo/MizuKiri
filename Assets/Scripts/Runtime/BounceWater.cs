@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace MizuKiri {
-    public class BounceWater : ComponentFeature<Collider> {
+    public class BounceWater : ComponentFeature<BoxCollider> {
         [SerializeField]
         float repelMultiplier = 1;
         [SerializeField]
