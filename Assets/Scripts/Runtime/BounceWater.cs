@@ -37,11 +37,11 @@ namespace MizuKiri {
             if (stone.canBounce) {
                 stone.canBounce = false;
 
-                stone.bounces++;
-
                 var position = observedComponent.ClosestPoint(stone.worldCenterOfMass);
 
                 InstantiateParticles(stone, position);
+
+                stone.bounces++;
 
                 onBounce.Invoke(position);
                 stone.AddForceAtPosition(repelForward * stone.forward, position);
