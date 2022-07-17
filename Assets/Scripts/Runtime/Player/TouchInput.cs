@@ -18,8 +18,8 @@ namespace MizuKiri {
         protected void OnEnable() {
             controls = new();
             controls.Touch.Touch.performed += HandleTouch;
-            controls.Touch.TouchPress.performed += HandleTouchPress;
-            controls.Touch.TouchPosition.performed += HandleTouchPosition;
+            controls.Touch.MouseClick.performed += HandleTouchPress;
+            controls.Touch.MousePosition.performed += HandleTouchPosition;
             controls.Touch.Enable();
         }
 
@@ -36,15 +36,15 @@ namespace MizuKiri {
         void HandleTouchPress(InputAction.CallbackContext obj) {
             bool isPressed = obj.ReadValueAsButton();
             if (isPressed) {
-                ContinueTouch(controls.Touch.TouchPosition.ReadValue<Vector2>(), obj.time);
+                ContinueClick(controls.Touch.MousePosition.ReadValue<Vector2>(), obj.time);
             } else {
-                StopTouch(controls.Touch.TouchPosition.ReadValue<Vector2>(), obj.time);
+                StopClick(controls.Touch.MousePosition.ReadValue<Vector2>(), obj.time);
             }
         }
 
         void HandleTouchPosition(InputAction.CallbackContext obj) {
             if (isTouching) {
-                ContinueTouch(obj.ReadValue<Vector2>(), obj.time);
+                ContinueClick(obj.ReadValue<Vector2>(), obj.time);
             }
         }
 
@@ -54,12 +54,12 @@ namespace MizuKiri {
                 case UnityEngine.InputSystem.TouchPhase.Began:
                 case UnityEngine.InputSystem.TouchPhase.Moved:
                 case UnityEngine.InputSystem.TouchPhase.Stationary:
-                    ContinueTouch(touch.position, obj.time);
+                    ContinueClick(touch.position, obj.time);
                     break;
                 case UnityEngine.InputSystem.TouchPhase.Ended:
                 case UnityEngine.InputSystem.TouchPhase.Canceled:
                 case UnityEngine.InputSystem.TouchPhase.None:
-                    StopTouch(touch.position, obj.time);
+                    StopClick(touch.position, obj.time);
                     break;
                 default:
                     Debug.Log($"Unknown touch phase: {touch.phase}");
@@ -67,7 +67,7 @@ namespace MizuKiri {
             }
         }
 
-        void ContinueTouch(Vector2 position, double time) {
+        void ContinueClick(Vector2 position, double time) {
             if (isTouching) {
                 onTouchMove?.Invoke(position, time);
             } else {
@@ -76,7 +76,7 @@ namespace MizuKiri {
             }
         }
 
-        void StopTouch(Vector2 position, double time) {
+        void StopClick(Vector2 position, double time) {
             if (isTouching) {
                 isTouching = false;
                 onTouchStop?.Invoke(position, time);

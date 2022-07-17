@@ -13,6 +13,11 @@ namespace MizuKiri.Player {
         GyroInput gyro = default;
 
         [SerializeField, Expandable]
+        Transform attachedCameraBody = default;
+        [SerializeField, Expandable]
+        Transform attachedCameraHead = default;
+
+        [SerializeField, Expandable]
         Camera attachedCamera = default;
 
         [Space]
@@ -97,8 +102,9 @@ namespace MizuKiri.Player {
             return ray.GetPoint(maxDistance);
         }
 
-        void HandleRotate(Quaternion rotation) {
-            attachedCamera.transform.localRotation = rotation;
+        void HandleRotate(Quaternion bodyRotation, Quaternion headRotation) {
+            attachedCameraBody.localRotation = bodyRotation;
+            attachedCameraHead.localRotation = headRotation;
         }
     }
 }

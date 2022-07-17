@@ -39,7 +39,7 @@ namespace MizuKiri.Input
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""TouchPress"",
+                    ""name"": ""MouseClick"",
                     ""type"": ""PassThrough"",
                     ""id"": ""3b633cf6-a099-4be2-a878-ba07dc0ffa7e"",
                     ""expectedControlType"": ""Button"",
@@ -48,7 +48,7 @@ namespace MizuKiri.Input
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""TouchPosition"",
+                    ""name"": ""MousePosition"",
                     ""type"": ""PassThrough"",
                     ""id"": ""4ceec40e-8dfa-4596-9653-ce77f70d2b19"",
                     ""expectedControlType"": ""Vector2"",
@@ -76,7 +76,7 @@ namespace MizuKiri.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TouchPress"",
+                    ""action"": ""MouseClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -87,7 +87,7 @@ namespace MizuKiri.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TouchPosition"",
+                    ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -105,6 +105,24 @@ namespace MizuKiri.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseClick"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""33371209-3a75-4d16-b502-0725ca5cf655"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseDelta"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""730e367e-d0ed-48db-895e-a2bc361a9599"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -118,6 +136,28 @@ namespace MizuKiri.Input
                     ""action"": ""Sensor"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c606d912-a3e2-498f-a613-b9bca8e27871"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5742a81-52ee-4a6a-8c70-16cc50f6d54d"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -127,11 +167,13 @@ namespace MizuKiri.Input
             // Touch
             m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
             m_Touch_Touch = m_Touch.FindAction("Touch", throwIfNotFound: true);
-            m_Touch_TouchPress = m_Touch.FindAction("TouchPress", throwIfNotFound: true);
-            m_Touch_TouchPosition = m_Touch.FindAction("TouchPosition", throwIfNotFound: true);
+            m_Touch_MouseClick = m_Touch.FindAction("MouseClick", throwIfNotFound: true);
+            m_Touch_MousePosition = m_Touch.FindAction("MousePosition", throwIfNotFound: true);
             // Gyro
             m_Gyro = asset.FindActionMap("Gyro", throwIfNotFound: true);
             m_Gyro_Sensor = m_Gyro.FindAction("Sensor", throwIfNotFound: true);
+            m_Gyro_MouseClick = m_Gyro.FindAction("MouseClick", throwIfNotFound: true);
+            m_Gyro_MouseDelta = m_Gyro.FindAction("MouseDelta", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -192,15 +234,15 @@ namespace MizuKiri.Input
         private readonly InputActionMap m_Touch;
         private ITouchActions m_TouchActionsCallbackInterface;
         private readonly InputAction m_Touch_Touch;
-        private readonly InputAction m_Touch_TouchPress;
-        private readonly InputAction m_Touch_TouchPosition;
+        private readonly InputAction m_Touch_MouseClick;
+        private readonly InputAction m_Touch_MousePosition;
         public struct TouchActions
         {
             private @PlayerControls m_Wrapper;
             public TouchActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Touch => m_Wrapper.m_Touch_Touch;
-            public InputAction @TouchPress => m_Wrapper.m_Touch_TouchPress;
-            public InputAction @TouchPosition => m_Wrapper.m_Touch_TouchPosition;
+            public InputAction @MouseClick => m_Wrapper.m_Touch_MouseClick;
+            public InputAction @MousePosition => m_Wrapper.m_Touch_MousePosition;
             public InputActionMap Get() { return m_Wrapper.m_Touch; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -213,12 +255,12 @@ namespace MizuKiri.Input
                     @Touch.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouch;
                     @Touch.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouch;
                     @Touch.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouch;
-                    @TouchPress.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPress;
-                    @TouchPress.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPress;
-                    @TouchPress.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPress;
-                    @TouchPosition.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPosition;
-                    @TouchPosition.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPosition;
-                    @TouchPosition.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnTouchPosition;
+                    @MouseClick.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnMouseClick;
+                    @MouseClick.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnMouseClick;
+                    @MouseClick.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnMouseClick;
+                    @MousePosition.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnMousePosition;
+                    @MousePosition.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnMousePosition;
+                    @MousePosition.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnMousePosition;
                 }
                 m_Wrapper.m_TouchActionsCallbackInterface = instance;
                 if (instance != null)
@@ -226,12 +268,12 @@ namespace MizuKiri.Input
                     @Touch.started += instance.OnTouch;
                     @Touch.performed += instance.OnTouch;
                     @Touch.canceled += instance.OnTouch;
-                    @TouchPress.started += instance.OnTouchPress;
-                    @TouchPress.performed += instance.OnTouchPress;
-                    @TouchPress.canceled += instance.OnTouchPress;
-                    @TouchPosition.started += instance.OnTouchPosition;
-                    @TouchPosition.performed += instance.OnTouchPosition;
-                    @TouchPosition.canceled += instance.OnTouchPosition;
+                    @MouseClick.started += instance.OnMouseClick;
+                    @MouseClick.performed += instance.OnMouseClick;
+                    @MouseClick.canceled += instance.OnMouseClick;
+                    @MousePosition.started += instance.OnMousePosition;
+                    @MousePosition.performed += instance.OnMousePosition;
+                    @MousePosition.canceled += instance.OnMousePosition;
                 }
             }
         }
@@ -241,11 +283,15 @@ namespace MizuKiri.Input
         private readonly InputActionMap m_Gyro;
         private IGyroActions m_GyroActionsCallbackInterface;
         private readonly InputAction m_Gyro_Sensor;
+        private readonly InputAction m_Gyro_MouseClick;
+        private readonly InputAction m_Gyro_MouseDelta;
         public struct GyroActions
         {
             private @PlayerControls m_Wrapper;
             public GyroActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Sensor => m_Wrapper.m_Gyro_Sensor;
+            public InputAction @MouseClick => m_Wrapper.m_Gyro_MouseClick;
+            public InputAction @MouseDelta => m_Wrapper.m_Gyro_MouseDelta;
             public InputActionMap Get() { return m_Wrapper.m_Gyro; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -258,6 +304,12 @@ namespace MizuKiri.Input
                     @Sensor.started -= m_Wrapper.m_GyroActionsCallbackInterface.OnSensor;
                     @Sensor.performed -= m_Wrapper.m_GyroActionsCallbackInterface.OnSensor;
                     @Sensor.canceled -= m_Wrapper.m_GyroActionsCallbackInterface.OnSensor;
+                    @MouseClick.started -= m_Wrapper.m_GyroActionsCallbackInterface.OnMouseClick;
+                    @MouseClick.performed -= m_Wrapper.m_GyroActionsCallbackInterface.OnMouseClick;
+                    @MouseClick.canceled -= m_Wrapper.m_GyroActionsCallbackInterface.OnMouseClick;
+                    @MouseDelta.started -= m_Wrapper.m_GyroActionsCallbackInterface.OnMouseDelta;
+                    @MouseDelta.performed -= m_Wrapper.m_GyroActionsCallbackInterface.OnMouseDelta;
+                    @MouseDelta.canceled -= m_Wrapper.m_GyroActionsCallbackInterface.OnMouseDelta;
                 }
                 m_Wrapper.m_GyroActionsCallbackInterface = instance;
                 if (instance != null)
@@ -265,6 +317,12 @@ namespace MizuKiri.Input
                     @Sensor.started += instance.OnSensor;
                     @Sensor.performed += instance.OnSensor;
                     @Sensor.canceled += instance.OnSensor;
+                    @MouseClick.started += instance.OnMouseClick;
+                    @MouseClick.performed += instance.OnMouseClick;
+                    @MouseClick.canceled += instance.OnMouseClick;
+                    @MouseDelta.started += instance.OnMouseDelta;
+                    @MouseDelta.performed += instance.OnMouseDelta;
+                    @MouseDelta.canceled += instance.OnMouseDelta;
                 }
             }
         }
@@ -272,12 +330,14 @@ namespace MizuKiri.Input
         public interface ITouchActions
         {
             void OnTouch(InputAction.CallbackContext context);
-            void OnTouchPress(InputAction.CallbackContext context);
-            void OnTouchPosition(InputAction.CallbackContext context);
+            void OnMouseClick(InputAction.CallbackContext context);
+            void OnMousePosition(InputAction.CallbackContext context);
         }
         public interface IGyroActions
         {
             void OnSensor(InputAction.CallbackContext context);
+            void OnMouseClick(InputAction.CallbackContext context);
+            void OnMouseDelta(InputAction.CallbackContext context);
         }
     }
 }
