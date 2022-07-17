@@ -1,3 +1,4 @@
+using System;
 using MyBox;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
@@ -87,9 +88,9 @@ namespace MizuKiri {
         public float travelDistance => freezePosition
             ? 0
             : Vector3.Distance(travelStart, travelStop);
-        [SerializeField, ReadOnly]
+        [NonSerialized]
         public bool canBounce = false;
-        [SerializeField, ReadOnly]
+        [NonSerialized]
         public bool canDive = false;
 
         protected override void SetUpComponents() {
