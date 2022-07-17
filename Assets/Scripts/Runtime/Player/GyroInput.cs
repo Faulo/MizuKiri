@@ -53,7 +53,8 @@ namespace MizuKiri.Player {
         }
 
         void ProcessGravity(Vector3 gravity) {
-            var rotation = Quaternion.LookRotation(correctionRotation * -gravity).eulerAngles;
+            var rotation = (correctionRotation * Quaternion.LookRotation(-gravity)).eulerAngles;
+
             look.x = rotation.y;
             look.y = rotation.x;
 
@@ -77,7 +78,9 @@ namespace MizuKiri.Player {
 
         void ContinueClick() {
             isTouching = true;
+#if UNITY_STANDALONE || UNITY_EDITOR
             Cursor.lockState = CursorLockMode.Locked;
+#endif
         }
 
         void ProcessDelta(Vector2 delta) {
@@ -89,7 +92,9 @@ namespace MizuKiri.Player {
 
         void StopClick() {
             isTouching = false;
+#if UNITY_STANDALONE || UNITY_EDITOR
             Cursor.lockState = CursorLockMode.None;
+#endif
         }
 
         void UpdateLook() {

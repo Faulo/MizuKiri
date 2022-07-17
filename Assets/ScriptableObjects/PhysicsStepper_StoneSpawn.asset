@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0ca2000603e6dc4fa90ddcb1121a66c, type: 3}
-  m_Name: PhysicsStepper
+  m_Name: PhysicsStepper_StoneSpawn
   m_EditorClassIdentifier: 
   deltaTimePerStep: 0.02
-  framesPerStep: 1
-  totalFramesToSimulate: 1000
-  rigidbodySettleTime: 5
+  framesPerStep: 10
+  totalFramesToSimulate: 100

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 
@@ -13,21 +14,45 @@ namespace MizuKiri {
         [SerializeField]
         int totalFramesToSimulate = 1000;
 
-        IEnumerator Simulate() {
-            Physics.autoSimulation = false;
+        public IEnumerator Simulate() {
             for (int i = 0; i < totalFramesToSimulate; i++) {
+                Physics.autoSimulation = false;
                 Physics.Simulate(deltaTimePerStep);
                 if (i % framesPerStep == 0) {
                     yield return null;
                 }
             }
+            yield return null;
             Physics.autoSimulation = true;
+        }
+
+        [SerializeField]
+        float rigidbodySettleTime = 5;
+
+        public IEnumerator SettleRigidbodies() {
+            Debug.Log("Settling rigidbodies...");
+            var rigidbodies = FindObjectsOfType<Rigidbody>();
+
+            for (int i = 0; i < rigidbodies.Length; i++) {
+                rigidbodies[i].WakeUp();
+            }
+
+            float time = Time.realtimeSinceStartup + rigidbodySettleTime;
+
+            do {
+                Physics.autoSimulation = false;
+                Physics.Simulate(deltaTimePerStep);
+                yield return null;
+            } while (Time.realtimeSinceStartup < time && rigidbodies.Any(rigidbody => !rigidbody.IsSleeping()));
+
+            Debug.Log("...done!");
         }
 
         [UnityEditor.CustomEditor(typeof(PhysicsStepper))]
         class PhysicsStepperEditor : RuntimeEditorTools<PhysicsStepper> {
             protected override void DrawEditorTools() {
-                DrawButton("Simulate!", target.Simulate);
+                DrawButton("Simulate", target.Simulate);
+                DrawButton("Settle rigidbodies", target.SettleRigidbodies);
             }
         }
 #endif

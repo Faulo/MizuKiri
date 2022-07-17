@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace MizuKiri {
-    public class DiveWater : ComponentFeature<Collider> {
+    public class DiveWater : ComponentFeature<BoxCollider> {
 
         [SerializeField]
         float diveDrag = 10;
@@ -17,6 +18,10 @@ namespace MizuKiri {
         [Header("Events")]
         [SerializeField]
         UnityEvent<Vector3> onDive = new();
+
+        public IEnumerable<Stone> containingStones => Physics
+            .OverlapBox(transform.position + observedComponent.center, observedComponent.size / 2)
+            .TrySelect<Collider, Stone>(c => c.TryGetComponent);
 
         protected void OnTriggerEnter(Collider collider) {
             if (collider.TryGetComponent<Stone>(out var stone)) {
