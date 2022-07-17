@@ -140,8 +140,10 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
-  canBounce: 1
-  canDive: 1
+  travelStart: {x: 0, y: 0, z: 0}
+  travelStop: {x: 0, y: 0, z: 0}
+  m_bounceColor: {r: 0.28627452, g: 0.49019608, b: 0.6039216, a: 1}
+  bounceColorMultiplier: {x: 0.2, y: 0.1, z: 0.1}
 --- !u!54 &2629559658859477562
 Rigidbody:
   m_ObjectHideFlags: 0

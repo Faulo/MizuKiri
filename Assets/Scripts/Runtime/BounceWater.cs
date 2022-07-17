@@ -1,3 +1,4 @@
+using Slothsoft.UnityExtensions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,10 @@ namespace MizuKiri {
         float repelMultiplier = 1;
         [SerializeField]
         float repelForward = 1;
+
+        [Space]
+        [SerializeField, Expandable]
+        ParticleSystem splashPrefab = default;
 
         [Header("Events")]
         [SerializeField]
@@ -36,11 +41,19 @@ namespace MizuKiri {
 
                 var position = observedComponent.ClosestPoint(stone.worldCenterOfMass);
 
+                InstantiateParticles(stone, position);
+
                 onBounce.Invoke(position);
                 stone.AddForceAtPosition(repelForward * stone.forward, position);
                 stone.AddForceAtPosition(repelMultiplier * stone.velocity3D.y * Vector3.up, position);
                 stone.AddTorque(new Vector3(0, stone.velocity2D.magnitude, 0));
             }
+        }
+
+        void InstantiateParticles(Stone stone, Vector3 position) {
+            var particles = Instantiate(splashPrefab, position, Quaternion.identity);
+            var main = particles.main;
+            main.startColor = stone.bounceColor;
         }
     }
 }

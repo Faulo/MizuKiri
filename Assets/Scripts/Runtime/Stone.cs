@@ -2,6 +2,7 @@ using System;
 using MyBox;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 namespace MizuKiri {
     public class Stone : ComponentFeature<Rigidbody> {
@@ -92,6 +93,29 @@ namespace MizuKiri {
         public bool canBounce = false;
         [NonSerialized]
         public bool canDive = false;
+
+        [SerializeField]
+        Color m_bounceColor = Color.blue;
+        [SerializeField]
+        Vector3 bounceColorMultiplier = Vector3.zero;
+        public MinMaxGradient bounceColor {
+            get {
+                var startColor = m_bounceColor;
+
+                Color.RGBToHSV(startColor, out float h, out float s, out float v);
+
+                h += bounceColorMultiplier.x * bounces;
+                while (h > 1) {
+                    h--;
+                }
+                s += bounceColorMultiplier.x * bounces;
+                v += bounceColorMultiplier.x * bounces;
+
+                var stopColor = Color.HSVToRGB(h, s, v);
+
+                return new MinMaxGradient(startColor, stopColor);
+            }
+        }
 
         protected override void SetUpComponents() {
             base.SetUpComponents();

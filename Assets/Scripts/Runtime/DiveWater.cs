@@ -5,9 +5,6 @@ using UnityEngine.Events;
 
 namespace MizuKiri {
     public class DiveWater : ComponentFeature<BoxCollider> {
-
-        [SerializeField]
-        float diveDrag = 10;
         [SerializeField]
         float diveVelocity = 0;
 
@@ -35,9 +32,17 @@ namespace MizuKiri {
 
                 var position = observedComponent.ClosestPoint(stone.worldCenterOfMass);
 
+                InstantiateParticles(stone, position);
+
                 stone.AddForce(diveVelocity * stone.velocity3D);
-                onDive.Invoke(stone.worldCenterOfMass);
+                onDive.Invoke(position);
             }
+        }
+
+        void InstantiateParticles(Stone stone, Vector3 position) {
+            var particles = Instantiate(splashPrefab, position, Quaternion.identity);
+            var main = particles.main;
+            main.startColor = stone.bounceColor;
         }
     }
 }
