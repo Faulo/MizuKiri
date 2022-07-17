@@ -19,6 +19,8 @@ namespace MizuKiri.Player {
         float maxXAngle = 90;
         [SerializeField]
         Vector2 look = Vector2.zero;
+        [SerializeField]
+        bool setCursorLock = false;
 
         PlayerControls controls;
 
@@ -79,7 +81,9 @@ namespace MizuKiri.Player {
         void ContinueClick() {
             isTouching = true;
 #if UNITY_STANDALONE || UNITY_EDITOR
-            Cursor.lockState = CursorLockMode.Locked;
+            if (setCursorLock) {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
 #endif
         }
 
@@ -93,7 +97,9 @@ namespace MizuKiri.Player {
         void StopClick() {
             isTouching = false;
 #if UNITY_STANDALONE || UNITY_EDITOR
-            Cursor.lockState = CursorLockMode.None;
+            if (setCursorLock) {
+                Cursor.lockState = CursorLockMode.None;
+            }
 #endif
         }
 

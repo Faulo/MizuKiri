@@ -11372,9 +11372,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   touch: {fileID: 1165280367}
   gyro: {fileID: 1165280368}
-  attachedCameraBody: {fileID: 1056069453}
-  attachedCameraHead: {fileID: 963194228}
   attachedCamera: {fileID: 963194227}
+  rotationSmoothing: 0.1
+  attachedCameraBody: {fileID: 1056069453}
+  targetBodyRotation: {x: 0, y: 0, z: 0, w: 1}
+  bodyRotationVelocity: {x: 0, y: 0, z: 0}
+  attachedCameraHead: {fileID: 963194228}
+  targetHeadRotation: {x: 0, y: 0, z: 0, w: 1}
+  headRotationVelocity: {x: 0, y: 0, z: 0}
   factory: {fileID: 11400000, guid: 4836699247831f642adc687c60bcabff, type: 2}
   useStoneStorage: 1
   maxStorageDistance: 1000

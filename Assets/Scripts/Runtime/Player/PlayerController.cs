@@ -1,4 +1,5 @@
 using System;
+using MyBox;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 
@@ -6,25 +7,33 @@ namespace MizuKiri.Player {
     public class PlayerController : MonoBehaviour {
         public event Action<StoneThrow> onStartThrow;
 
+        [Header("Input")]
         [SerializeField]
         TouchInput touch = default;
-
         [SerializeField]
         GyroInput gyro = default;
 
-        [SerializeField, Expandable]
-        Transform attachedCameraBody = default;
-        [SerializeField, Expandable]
-        Transform attachedCameraHead = default;
-
+        [Header("Camera")]
         [SerializeField, Expandable]
         Camera attachedCamera = default;
-
-        [Space]
+        [SerializeField, Range(0, 10)]
+        float rotationSmoothing = 1;
         [SerializeField, Expandable]
-        StoneFactory factory = default;
+        Transform attachedCameraBody = default;
+        [SerializeField, ReadOnly]
+        Quaternion targetBodyRotation = Quaternion.identity;
+        [SerializeField, ReadOnly]
+        Vector3 bodyRotationVelocity = Vector3.zero;
+        [SerializeField, Expandable]
+        Transform attachedCameraHead = default;
+        [SerializeField, ReadOnly]
+        Quaternion targetHeadRotation = Quaternion.identity;
+        [SerializeField, ReadOnly]
+        Vector3 headRotationVelocity = Vector3.zero;
 
         [Header("Pointing")]
+        [SerializeField, Expandable]
+        StoneFactory factory = default;
         [SerializeField]
         bool useStoneStorage = true;
         [SerializeField]
@@ -57,6 +66,8 @@ namespace MizuKiri.Player {
         }
 
         protected void OnEnable() {
+            targetBodyRotation = attachedCameraBody.localRotation;
+            targetHeadRotation = attachedCameraHead.localRotation;
             touch.onTouchStart += HandleTouchStart;
             touch.onTouchMove += HandleTouchMove;
             touch.onTouchStop += HandleTouchStop;
@@ -68,6 +79,11 @@ namespace MizuKiri.Player {
             touch.onTouchMove -= HandleTouchMove;
             touch.onTouchStop -= HandleTouchStop;
             gyro.onRotate -= HandleRotate;
+        }
+
+        protected void Update() {
+            attachedCameraBody.localRotation = SmoothDampQuaternion(attachedCameraBody.localRotation, targetBodyRotation, ref bodyRotationVelocity, rotationSmoothing);
+            attachedCameraHead.localRotation = SmoothDampQuaternion(attachedCameraHead.localRotation, targetHeadRotation, ref headRotationVelocity, rotationSmoothing);
         }
 
         protected void FixedUpdate() {
@@ -126,8 +142,18 @@ namespace MizuKiri.Player {
         }
 
         void HandleRotate(Quaternion bodyRotation, Quaternion headRotation) {
-            attachedCameraBody.localRotation = bodyRotation;
-            attachedCameraHead.localRotation = headRotation;
+            targetBodyRotation = bodyRotation;
+            targetHeadRotation = headRotation;
+        }
+
+        static Quaternion SmoothDampQuaternion(Quaternion current, Quaternion target, ref Vector3 currentVelocity, float smoothTime) {
+            var c = current.eulerAngles;
+            var t = target.eulerAngles;
+            return Quaternion.Euler(
+              Mathf.SmoothDampAngle(c.x, t.x, ref currentVelocity.x, smoothTime),
+              Mathf.SmoothDampAngle(c.y, t.y, ref currentVelocity.y, smoothTime),
+              Mathf.SmoothDampAngle(c.z, t.z, ref currentVelocity.z, smoothTime)
+            );
         }
     }
 }
