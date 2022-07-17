@@ -22,8 +22,6 @@ namespace MizuKiri.Player {
             this.maxSpeed = maxSpeed;
 
             stone.freezePosition = true;
-
-            targetPosition = currentPosition;
         }
 
         public void FixedUpdate(float deltaTime) {

@@ -76,11 +76,14 @@ namespace MizuKiri.Player {
 
         void HandleTouchStart(Vector2 position, double time) {
             if (currentStone == null) {
+                var position3D = TranslatePosition(position);
                 var stone = useStoneStorage
                     ? FindStoneOnScreen(position)
-                    : factory.InstantiateStone(TranslatePosition(position));
+                    : factory.InstantiateStone(position3D);
                 if (stone) {
-                    currentStone = new StoneThrow(stone, throwSpeedSmoothing, throwSpeedMaximum);
+                    currentStone = new StoneThrow(stone, throwSpeedSmoothing, throwSpeedMaximum) {
+                        targetPosition = position3D
+                    };
                     onStartThrow?.Invoke(currentStone);
                 }
             }
