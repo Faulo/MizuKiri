@@ -59,10 +59,6 @@ namespace MizuKiri {
             }
         }
         public Vector3 forward => transform.forward;
-        public float drag {
-            get => attachedRigidbody.drag;
-            set => attachedRigidbody.drag = value;
-        }
         public Vector2 velocity2D => attachedRigidbody.velocity.SwizzleXZ();
         public Vector3 velocity3D => attachedRigidbody.velocity;
         public Vector3 worldCenterOfMass => attachedRigidbody.worldCenterOfMass;

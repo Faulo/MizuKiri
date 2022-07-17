@@ -36,7 +36,6 @@ namespace MizuKiri {
                 var position = observedComponent.ClosestPoint(stone.worldCenterOfMass);
 
                 stone.AddForce(diveVelocity * stone.velocity3D);
-                stone.drag = diveDrag;
                 onDive.Invoke(stone.worldCenterOfMass);
             }
         }
