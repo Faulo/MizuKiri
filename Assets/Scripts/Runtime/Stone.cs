@@ -59,10 +59,6 @@ namespace MizuKiri {
             }
         }
         public Vector3 forward => transform.forward;
-        public bool isKinematic {
-            get => attachedRigidbody.isKinematic;
-            set => attachedRigidbody.isKinematic = value;
-        }
         public float drag {
             get => attachedRigidbody.drag;
             set => attachedRigidbody.drag = value;
@@ -87,9 +83,9 @@ namespace MizuKiri {
         [SerializeField]
         public int bounces = 0;
         [SerializeField]
-        public bool canBounce = true;
+        public bool canBounce = false;
         [SerializeField]
-        public bool canDive = true;
+        public bool canDive = false;
 
         protected override void SetUpComponents() {
             base.SetUpComponents();
@@ -109,7 +105,7 @@ namespace MizuKiri {
                 Destroy(gameObject);
                 return;
             }
-            gameObject.layer = isKinematic
+            gameObject.layer = freezePosition
                 ? throwLayer
                 : velocity2D.magnitude > speedThreshold
                     ? bounceLayer
