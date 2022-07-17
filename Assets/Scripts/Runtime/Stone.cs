@@ -1,3 +1,4 @@
+using MyBox;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 
@@ -39,11 +40,11 @@ namespace MizuKiri {
         [Header("Bounciness")]
         [SerializeField, Range(0, 100)]
         float speedThreshold = 10;
-        [SerializeField, Layer]
+        [SerializeField, Slothsoft.UnityExtensions.Layer]
         int bounceLayer = 0;
-        [SerializeField, Layer]
+        [SerializeField, Slothsoft.UnityExtensions.Layer]
         int diveLayer = 0;
-        [SerializeField, Layer]
+        [SerializeField, Slothsoft.UnityExtensions.Layer]
         int throwLayer = 0;
 
         public Vector3 position {
@@ -76,11 +77,19 @@ namespace MizuKiri {
             set => attachedRenderer.sharedMaterial = value;
         }
 
-        [SerializeField]
+        [Header("Debug")]
+        [SerializeField, ReadOnly]
         public int bounces = 0;
-        [SerializeField]
+        [SerializeField, ReadOnly]
+        public Vector3 travelStart = Vector3.zero;
+        [SerializeField, ReadOnly]
+        public Vector3 travelStop = Vector3.zero;
+        public float travelDistance => freezePosition
+            ? 0
+            : Vector3.Distance(travelStart, travelStop);
+        [SerializeField, ReadOnly]
         public bool canBounce = false;
-        [SerializeField]
+        [SerializeField, ReadOnly]
         public bool canDive = false;
 
         protected override void SetUpComponents() {
@@ -106,6 +115,9 @@ namespace MizuKiri {
                 : velocity2D.magnitude > speedThreshold
                     ? bounceLayer
                     : diveLayer;
+            if (canDive) {
+                travelStop = position;
+            }
         }
     }
 }

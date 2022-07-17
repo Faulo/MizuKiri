@@ -295,6 +295,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &18714989
@@ -384,6 +385,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &21113462
@@ -602,6 +604,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &34109872
@@ -857,6 +860,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &46605399
@@ -1112,6 +1116,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &48751752
@@ -1367,6 +1372,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &70227290
@@ -1456,6 +1462,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &70861619
@@ -1707,6 +1714,146 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73994087}
   m_Mesh: {fileID: 3311952220158362958, guid: 4836699247831f642adc687c60bcabff, type: 2}
+--- !u!1 &75087638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75087639}
+  - component: {fileID: 75087641}
+  - component: {fileID: 75087640}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &75087639
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75087638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1593844203}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &75087640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75087638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: '<color=#00A0A0>Current Throw</color>
+
+    <size=75%>Skip count: $skips
+
+    Skim
+    distance: $skimm</size>'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: b29d6f38bf653bc46aeafc39ce264267, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 3dc5c7fb92937ab449b0e34f672e8aa7, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 20, y: 0, z: 20, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &75087641
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75087638}
+  m_CullTransparentMesh: 1
 --- !u!1 &76151790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,6 +1941,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &79082477
@@ -1883,6 +2031,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &81391499
@@ -2055,6 +2204,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &82378598
@@ -2144,6 +2294,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &84600689
@@ -2233,6 +2384,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &86276467
@@ -2903,6 +3055,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &119053570
@@ -2992,6 +3145,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &120722494
@@ -3081,6 +3235,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &122932040
@@ -3336,6 +3491,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &128900301
@@ -3508,6 +3664,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &132358646
@@ -3597,6 +3754,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &134916214
@@ -3769,6 +3927,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &136813636
@@ -4024,6 +4183,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &147192515
@@ -4113,6 +4273,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &148666963
@@ -4202,6 +4363,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &151106375
@@ -4291,6 +4453,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &153779669
@@ -4629,6 +4792,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &164784781
@@ -4801,6 +4965,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &169765350
@@ -4890,6 +5055,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &170553769
@@ -4979,6 +5145,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &173470964
@@ -5068,6 +5235,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &175034214
@@ -5240,6 +5408,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &177854427
@@ -5495,6 +5664,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &188358894
@@ -5584,6 +5754,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &191272863
@@ -5673,6 +5844,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &193128449
@@ -5762,6 +5934,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &193756016
@@ -5934,6 +6107,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &199998924
@@ -6106,6 +6280,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &202628550
@@ -6195,6 +6370,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &210752922
@@ -6450,6 +6626,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &216152359
@@ -6622,6 +6799,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &218535319
@@ -6794,6 +6972,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &224040088
@@ -6883,6 +7062,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &226176368
@@ -6972,6 +7152,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &228503119
@@ -7061,6 +7242,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &235454762
@@ -7150,6 +7332,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &247759216
@@ -7405,6 +7588,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &261356145
@@ -7577,6 +7761,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &263390682
@@ -7749,6 +7934,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &267079706
@@ -7921,6 +8107,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &275638318
@@ -8010,6 +8197,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &275910438
@@ -8099,6 +8287,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &276719415
@@ -8188,6 +8377,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &282569756
@@ -8277,6 +8467,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &283327303
@@ -8366,6 +8557,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &285855138
@@ -8455,6 +8647,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &285891354
@@ -8544,6 +8737,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &289003914
@@ -8633,6 +8827,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &289155050
@@ -9054,6 +9249,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &293682148
@@ -9143,6 +9339,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &296018918
@@ -9398,6 +9595,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &300191187
@@ -9653,6 +9851,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &308630871
@@ -9742,6 +9941,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &309078634
@@ -9997,6 +10197,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &318262340
@@ -10094,6 +10295,7 @@ GameObject:
   - component: {fileID: 319053900}
   - component: {fileID: 319053899}
   - component: {fileID: 319053898}
+  - component: {fileID: 319053901}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -10108,20 +10310,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319053896}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 937546109}
-  m_Father: {fileID: 718803320}
+  m_Father: {fileID: 1853118740}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &319053898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10216,6 +10418,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319053896}
   m_CullTransparentMesh: 1
+--- !u!114 &319053901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319053896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: 1
+  m_LayoutPriority: 1
 --- !u!1 &322616286
 GameObject:
   m_ObjectHideFlags: 0
@@ -10469,6 +10691,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &334240871
@@ -10558,6 +10781,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &337069036
@@ -10647,6 +10871,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &340298124
@@ -11068,6 +11293,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &345466495
@@ -11240,6 +11466,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &361027529
@@ -11670,6 +11897,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &382369909
@@ -11842,6 +12070,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &385315139
@@ -12014,6 +12243,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &392273677
@@ -12186,6 +12416,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &395199079
@@ -12275,6 +12506,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &402109699
@@ -12364,6 +12596,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &402192082
@@ -12702,6 +12935,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &415380624
@@ -12791,6 +13025,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &421029100
@@ -12963,6 +13198,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &423816502
@@ -13052,6 +13288,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &428296351
@@ -13224,6 +13461,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &438654098
@@ -13313,6 +13551,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &438825259
@@ -13734,6 +13973,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &443722732
@@ -13823,6 +14063,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &448899998
@@ -14078,6 +14319,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &457749162
@@ -14167,6 +14409,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &459142874
@@ -14256,6 +14499,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &465433043
@@ -14345,6 +14589,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &466498574
@@ -14434,6 +14679,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &466818036
@@ -14606,6 +14852,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &472458660
@@ -14695,6 +14942,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &475514353
@@ -14867,6 +15115,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &484161676
@@ -14956,6 +15205,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &484271210
@@ -15128,6 +15378,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &490775894
@@ -15217,6 +15468,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &492829280
@@ -15306,6 +15558,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &493759040
@@ -15478,6 +15731,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &501059303
@@ -15816,6 +16070,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &508275755
@@ -15905,6 +16160,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &516835942
@@ -15965,7 +16221,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: '<color=#A00000>Highscore</color>
+
+    <size=75%>Skip count: $skips
+
+    Skim
+    distance: $skimm</size>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b29d6f38bf653bc46aeafc39ce264267, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 3dc5c7fb92937ab449b0e34f672e8aa7, type: 2}
@@ -16378,6 +16639,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &537112859
@@ -16467,6 +16729,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &537508445
@@ -16805,6 +17068,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &550328911
@@ -16977,6 +17241,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &555696759
@@ -17066,8 +17331,84 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
+--- !u!1 &556375572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 556375573}
+  - component: {fileID: 556375575}
+  - component: {fileID: 556375574}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &556375573
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556375572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1154111334}
+  - {fileID: 1593844203}
+  - {fileID: 1853118740}
+  m_Father: {fileID: 718803320}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.9}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &556375574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556375572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!222 &556375575
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556375572}
+  m_CullTransparentMesh: 1
 --- !u!1 &559664717
 GameObject:
   m_ObjectHideFlags: 0
@@ -17238,6 +17579,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &568979222
@@ -17410,6 +17752,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &575677516
@@ -17499,6 +17842,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &581505351
@@ -17671,6 +18015,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &583457439
@@ -17760,6 +18105,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &583464124
@@ -18015,6 +18361,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &603020999
@@ -18270,6 +18617,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &608329408
@@ -18442,6 +18790,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &622347987
@@ -18531,6 +18880,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &623369458
@@ -18620,6 +18970,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &633985268
@@ -18709,6 +19060,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &635152039
@@ -19282,6 +19634,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &658470860
@@ -19703,6 +20056,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &680634307
@@ -19792,6 +20146,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &680871030
@@ -19881,6 +20236,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &683028183
@@ -20053,6 +20409,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &692205056
@@ -20308,6 +20665,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &704007081
@@ -20397,6 +20755,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &704973959
@@ -20486,6 +20845,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &705507993
@@ -20773,6 +21133,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &709645883
@@ -21277,6 +21638,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &713101599
@@ -21449,6 +21811,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &716768336
@@ -21538,6 +21901,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &718803316
@@ -21558,7 +21922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &718803317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21633,8 +21997,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1154111334}
-  - {fileID: 319053897}
+  - {fileID: 556375573}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22145,6 +22508,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &733131922
@@ -22317,6 +22681,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &735898260
@@ -22406,6 +22771,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &740258650
@@ -22495,6 +22861,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &740879629
@@ -22584,6 +22951,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &746214593
@@ -22756,6 +23124,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &751122922
@@ -22845,6 +23214,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &753018005
@@ -22934,6 +23304,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &753936634
@@ -23106,6 +23477,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &758371599
@@ -23278,6 +23650,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &760654835
@@ -23367,6 +23740,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &760974532
@@ -23641,6 +24015,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &763505489
@@ -23730,6 +24105,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &767669307
@@ -23985,6 +24361,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &785013847
@@ -24240,6 +24617,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &793298488
@@ -24495,6 +24873,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &803146445
@@ -24667,6 +25046,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &810480652
@@ -25254,6 +25634,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &826689397
@@ -25343,6 +25724,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &832904592
@@ -25515,6 +25897,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &839548445
@@ -25687,6 +26070,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1001 &849778311
@@ -25863,6 +26247,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &857050785
@@ -25952,6 +26337,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &858709031
@@ -26041,6 +26427,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &859303877
@@ -26302,6 +26689,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &867587243
@@ -26640,6 +27028,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &881646112
@@ -26895,6 +27284,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &885162859
@@ -26984,6 +27374,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &889950725
@@ -27073,6 +27464,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &893958868
@@ -27494,6 +27886,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &900941746
@@ -27749,6 +28142,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &919040179
@@ -27838,6 +28232,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &920128610
@@ -27927,6 +28322,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &922875549
@@ -28016,6 +28412,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &924252234
@@ -28354,6 +28751,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &937546108
@@ -28441,7 +28839,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.45
+  m_fontSize: 66.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -28578,6 +28976,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &939119141
@@ -28750,6 +29149,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &943603469
@@ -28839,6 +29239,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &948925563
@@ -28928,6 +29329,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &951413142
@@ -29017,6 +29419,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &955462676
@@ -29189,6 +29592,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &960673292
@@ -29278,6 +29682,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &961753029
@@ -29367,6 +29772,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &963194225
@@ -29598,6 +30004,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &971006747
@@ -29687,6 +30094,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &972021839
@@ -29776,6 +30184,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &972941895
@@ -29865,6 +30274,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &976558498
@@ -29954,6 +30364,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &977160231
@@ -30126,6 +30537,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &978111644
@@ -30215,6 +30627,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &979039616
@@ -30304,6 +30717,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &989413069
@@ -30393,6 +30807,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &990061483
@@ -30648,6 +31063,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &993789629
@@ -30903,6 +31319,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1000547111
@@ -30992,6 +31409,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1000601966
@@ -31662,6 +32080,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1009008045
@@ -31912,6 +32331,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1013715731
@@ -32001,6 +32421,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1015810448
@@ -32090,6 +32511,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1022636882
@@ -32179,6 +32601,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1023225202
@@ -32434,6 +32857,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1035790069
@@ -32523,6 +32947,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1036155890
@@ -32695,6 +33120,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1039616414
@@ -32784,6 +33210,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1041614909
@@ -32873,6 +33300,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1042196684
@@ -32962,6 +33390,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1043905976
@@ -33134,6 +33563,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1045947988
@@ -33306,6 +33736,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1056069452
@@ -33427,6 +33858,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1059113992
@@ -33599,6 +34031,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1071185605
@@ -33688,6 +34121,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1071706094
@@ -33777,6 +34211,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1072455273
@@ -34364,6 +34799,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1085891402
@@ -34536,6 +34972,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1087934456
@@ -34957,6 +35394,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1097929141
@@ -35129,6 +35567,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1101634028
@@ -35218,6 +35657,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1104825451
@@ -35390,6 +35830,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1106971024
@@ -35562,6 +36003,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1111094688
@@ -35983,6 +36425,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1132642055
@@ -36238,6 +36681,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1147564166
@@ -36327,6 +36771,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1147671105
@@ -36416,6 +36861,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1147966928
@@ -36588,6 +37034,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1151891462
@@ -36767,8 +37214,10 @@ GameObject:
   - component: {fileID: 1154111334}
   - component: {fileID: 1154111336}
   - component: {fileID: 1154111335}
+  - component: {fileID: 1154111337}
+  - component: {fileID: 1154111338}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Highscore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36781,19 +37230,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154111333}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 516835943}
-  m_Father: {fileID: 718803320}
+  m_Father: {fileID: 556375573}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 200}
+  m_SizeDelta: {x: 720.07697, y: 95.989746}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1154111335
 MonoBehaviour:
@@ -36802,7 +37251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154111333}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -36833,6 +37282,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154111333}
   m_CullTransparentMesh: 1
+--- !u!114 &1154111337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154111333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: 1
+  m_LayoutPriority: 1
+--- !u!114 &1154111338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154111333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e5c841d4fe1ee449d5a6b832229452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_observedComponent: {fileID: 516835944}
+  player: {fileID: 366210934}
+  type: 1
 --- !u!1 &1156123672
 GameObject:
   m_ObjectHideFlags: 0
@@ -36920,6 +37404,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1158727419
@@ -37092,6 +37577,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1159155916
@@ -37181,6 +37667,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1165280364
@@ -37339,7 +37826,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 177.2
+  m_fontSize: 176.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -37559,6 +38046,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1171751091
@@ -37814,6 +38302,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1178234673
@@ -37903,6 +38392,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1178283781
@@ -37992,6 +38482,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1181395362
@@ -38081,6 +38572,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1189574102
@@ -38170,6 +38662,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1192936687
@@ -38674,6 +39167,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1201881955
@@ -38763,6 +39257,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1205041885
@@ -39018,6 +39513,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1210452870
@@ -39107,6 +39603,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1215276403
@@ -39196,6 +39693,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1233746449
@@ -39285,6 +39783,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1234427300
@@ -39374,6 +39873,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1239834871
@@ -39546,6 +40046,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1241535816
@@ -39801,6 +40302,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1250338218
@@ -40312,6 +40814,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1261633487
@@ -40484,6 +40987,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1272923150
@@ -40573,6 +41077,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1273467222
@@ -40662,6 +41167,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1278977126
@@ -40751,6 +41257,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1281563047
@@ -41006,6 +41513,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1291903204
@@ -41095,6 +41603,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1293522123
@@ -41267,6 +41776,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1295012047
@@ -41356,6 +41866,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1296400232
@@ -41445,6 +41956,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1296717866
@@ -41617,6 +42129,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1298604407
@@ -41872,6 +42385,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1308655249
@@ -41961,6 +42475,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1313488290
@@ -42216,6 +42731,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1318768126
@@ -42471,6 +42987,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1334749663
@@ -42560,6 +43077,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1336418472
@@ -42732,6 +43250,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1345130855
@@ -43070,6 +43589,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1349373189
@@ -43159,6 +43679,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1351173133
@@ -43331,6 +43852,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1353650508
@@ -43420,6 +43942,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1360553216
@@ -43758,6 +44281,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1379983341
@@ -43930,6 +44454,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1385067434
@@ -44185,6 +44710,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1392296291
@@ -44274,6 +44800,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1393107474
@@ -44497,6 +45024,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1398215802
@@ -44586,6 +45114,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1398817866
@@ -44675,6 +45204,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1399319937
@@ -45013,6 +45543,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1406675167
@@ -45102,6 +45633,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1416061711
@@ -45440,6 +45972,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1438714758
@@ -45529,6 +46062,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1442308193
@@ -45867,6 +46401,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1455097994
@@ -46039,6 +46574,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1455491862
@@ -46294,6 +46830,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1463556874
@@ -46383,6 +46920,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1464021446
@@ -46555,6 +47093,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1473279479
@@ -46893,6 +47432,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1481795772
@@ -47148,6 +47688,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1491308602
@@ -47237,6 +47778,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1492178840
@@ -47658,6 +48200,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1506386217
@@ -47913,6 +48456,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1518317866
@@ -48002,6 +48546,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1519768567
@@ -48091,6 +48636,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1523471913
@@ -48346,6 +48892,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1530275990
@@ -48933,6 +49480,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1546460925
@@ -49056,6 +49604,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1550859390
@@ -49145,6 +49694,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1551961343
@@ -49317,6 +49867,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1554182578
@@ -49406,6 +49957,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1562015783
@@ -49661,6 +50213,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1568501307
@@ -49833,6 +50386,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1571310044
@@ -50171,6 +50725,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1578812148
@@ -50509,8 +51064,123 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
+--- !u!1 &1593844202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1593844203}
+  - component: {fileID: 1593844205}
+  - component: {fileID: 1593844204}
+  - component: {fileID: 1593844206}
+  - component: {fileID: 1593844207}
+  m_Layer: 5
+  m_Name: Current
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1593844203
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593844202}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 75087639}
+  m_Father: {fileID: 556375573}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1080.1155, y: 0}
+  m_SizeDelta: {x: 720.07697, y: 95.989746}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1593844204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593844202}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.101960786}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1593844205
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593844202}
+  m_CullTransparentMesh: 1
+--- !u!114 &1593844206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593844202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: 1
+  m_LayoutPriority: 1
+--- !u!114 &1593844207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593844202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e5c841d4fe1ee449d5a6b832229452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_observedComponent: {fileID: 75087640}
+  player: {fileID: 366210934}
+  type: 0
 --- !u!1 &1599636215
 GameObject:
   m_ObjectHideFlags: 0
@@ -50598,6 +51268,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1604510519
@@ -50770,6 +51441,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1606658201
@@ -50859,6 +51531,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1608110637
@@ -51031,6 +51704,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1611014838
@@ -51203,6 +51877,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1615426829
@@ -51458,6 +52133,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1623191820
@@ -51630,6 +52306,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1627217033
@@ -51719,6 +52396,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1628550372
@@ -51808,6 +52486,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1628908102
@@ -51897,6 +52576,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1631298494
@@ -51986,6 +52666,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1636857663
@@ -52241,6 +52922,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1643121491
@@ -52497,6 +53179,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1650773739
@@ -52752,6 +53435,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1667462707
@@ -52924,6 +53608,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1678951769
@@ -53096,6 +53781,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1689211654
@@ -53268,6 +53954,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1692289614
@@ -53357,6 +54044,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1693626824
@@ -53446,6 +54134,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1696788828
@@ -53535,6 +54224,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1697907586
@@ -53790,6 +54480,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1706108643
@@ -53962,6 +54653,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1706858824
@@ -54349,6 +55041,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1711962899
@@ -54604,6 +55297,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1719763489
@@ -54776,6 +55470,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1723652541
@@ -54865,6 +55560,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1727348052
@@ -55452,6 +56148,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1746892086
@@ -55541,6 +56238,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1746975543
@@ -55630,6 +56328,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1748691834
@@ -55719,6 +56418,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1756810759
@@ -55891,6 +56591,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1771365156
@@ -55980,6 +56681,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1778803020
@@ -56069,6 +56771,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1782358789
@@ -56241,6 +56944,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1784439085
@@ -56413,6 +57117,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1786439041
@@ -56585,6 +57290,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1788999690
@@ -56674,6 +57380,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1793625357
@@ -57178,6 +57885,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1806565838
@@ -57508,6 +58216,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1814369832
@@ -57597,6 +58306,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1815351232
@@ -57769,6 +58479,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1816804333
@@ -58024,6 +58735,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1817714409
@@ -58196,6 +58908,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1823204978
@@ -58285,6 +58998,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1823855663
@@ -58408,6 +59122,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1838599657
@@ -58580,8 +59295,76 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
+--- !u!1 &1853118739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853118740}
+  - component: {fileID: 1853118742}
+  - component: {fileID: 1853118741}
+  m_Layer: 5
+  m_Name: Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1853118740
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853118739}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 319053897}
+  m_Father: {fileID: 556375573}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1800.1924, y: 0}
+  m_SizeDelta: {x: 720.07697, y: 95.989746}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1853118741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853118739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: 1
+  m_LayoutPriority: 1
+--- !u!222 &1853118742
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853118739}
+  m_CullTransparentMesh: 1
 --- !u!1 &1853495977
 GameObject:
   m_ObjectHideFlags: 0
@@ -58669,6 +59452,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1854002246
@@ -58758,6 +59542,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1858349068
@@ -59345,6 +60130,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1880583673
@@ -59434,6 +60220,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1885515730
@@ -59523,6 +60310,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1887932606
@@ -59612,6 +60400,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1895619225
@@ -59701,6 +60490,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1898257943
@@ -59790,6 +60580,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1900128749
@@ -60045,6 +60836,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1906462278
@@ -60134,6 +60926,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1907146878
@@ -60223,6 +61016,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1911177890
@@ -60312,6 +61106,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1911414158
@@ -60733,6 +61528,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1921489537
@@ -60822,6 +61618,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1921494597
@@ -60911,6 +61708,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1926081885
@@ -61166,6 +61964,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1936944176
@@ -61421,6 +62220,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1943317999
@@ -61676,6 +62476,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1953188191
@@ -61765,6 +62566,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1953244810
@@ -61854,6 +62656,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1953570738
@@ -61943,6 +62746,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1957203450
@@ -62447,6 +63251,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1968333773
@@ -62536,6 +63341,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1971307983
@@ -62625,6 +63431,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1973878949
@@ -62714,6 +63521,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1975786479
@@ -62803,6 +63611,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1977030403
@@ -62892,6 +63701,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1978537299
@@ -63147,6 +63957,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1979571468
@@ -63236,6 +64047,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &1983030470
@@ -64155,6 +64967,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2005344824
@@ -64410,6 +65223,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2007047706
@@ -64499,6 +65313,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2007509995
@@ -64588,6 +65403,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2016913743
@@ -64760,6 +65576,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2022386618
@@ -64849,6 +65666,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2023179551
@@ -64938,6 +65756,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2023629702
@@ -65193,6 +66012,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2044660144
@@ -65448,6 +66268,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2050111504
@@ -65703,6 +66524,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2058762465
@@ -65875,6 +66697,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2062682678
@@ -65964,6 +66787,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2064136888
@@ -66136,6 +66960,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2066992303
@@ -66308,6 +67133,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2068702189
@@ -66397,6 +67223,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2071456478
@@ -66486,6 +67313,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2072638595
@@ -66658,6 +67486,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2075239084
@@ -66830,6 +67659,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2083045661
@@ -66919,6 +67749,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2083147661
@@ -67008,6 +67839,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2088742066
@@ -67097,6 +67929,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2088924454
@@ -67186,6 +68019,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2090194132
@@ -67358,6 +68192,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2100426922
@@ -67447,6 +68282,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2100464560
@@ -67785,6 +68621,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2110825183
@@ -67874,6 +68711,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2112745715
@@ -67963,6 +68801,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2113038016
@@ -68052,6 +68891,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2113796695
@@ -68473,6 +69313,7 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0
 --- !u!1 &2135535470
@@ -68811,5 +69652,6 @@ MonoBehaviour:
   diveLayer: 7
   throwLayer: 8
   bounces: 0
+  travelStart: {x: 0, y: 0, z: 0}
   canBounce: 0
   canDive: 0

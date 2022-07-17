@@ -30,7 +30,7 @@ namespace MizuKiri.Player {
         }
 
         public void Launch(Vector3 position, float multiplier) {
-            currentPosition = targetPosition = position;
+            stone.travelStart = stone.travelStop = currentPosition = targetPosition = position;
             stone.freezePosition = false;
             stone.canBounce = true;
             stone.canDive = true;

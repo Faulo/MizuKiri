@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MizuKiri {
+namespace MizuKiri.UI {
     [CreateAssetMenu]
     public class Menu : ScriptableObject {
         public void Quit() {
