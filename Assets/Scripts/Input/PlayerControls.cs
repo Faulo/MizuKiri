@@ -103,7 +103,7 @@ namespace MizuKiri.Input
                 {
                     ""name"": """",
                     ""id"": ""1cf1db45-2328-4786-90a5-533b78632a76"",
-                    ""path"": ""<Gyroscope>/angularVelocity"",
+                    ""path"": ""<GravitySensor>/gravity"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

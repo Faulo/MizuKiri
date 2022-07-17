@@ -1,24 +1,33 @@
+using System;
 using MizuKiri.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace MizuKiri.Player {
     public class GyroInput : MonoBehaviour {
-        [field: SerializeField]
-        public Quaternion rotation { get; private set; }
+        public event Action<Quaternion> onRotate;
+
+        [SerializeField]
+        Quaternion correctionRotation = Quaternion.identity;
 
         PlayerControls controls;
 
         protected void OnEnable() {
             controls = new();
-            controls.Player.Gyro.started += HandleInput;
-            controls.Player.Gyro.performed += HandleInput;
-            controls.Player.Gyro.canceled += HandleInput;
+            if (GravitySensor.current != null) {
+                InputSystem.EnableDevice(GravitySensor.current);
+                controls.Player.Gyro.started += HandleInput;
+                controls.Player.Gyro.performed += HandleInput;
+                controls.Player.Gyro.canceled += HandleInput;
+            }
             controls.Enable();
         }
 
         protected void OnDisable() {
             if (controls != null) {
+                if (GravitySensor.current != null) {
+                    InputSystem.DisableDevice(GravitySensor.current);
+                }
                 controls.Disable();
                 controls.Dispose();
                 controls = null;
@@ -29,15 +38,19 @@ namespace MizuKiri.Player {
             Debug.Log(obj.ReadValue<Vector3>());
         }
 
+        [Space]
+        [SerializeField]
+        Vector3 debugGravity = Vector3.zero;
         protected void Update() {
-            if (controls.Player.Gyro.enabled) {
-                //rotation = GetGyroRotation();
+            if (GravitySensor.current == null) {
+                debugGravity.Normalize();
+                ProcessGravity(debugGravity);
             }
         }
 
-        Quaternion GetGyroRotation() {
-            var rotation = controls.Player.Gyro.ReadValue<Quaternion>();
-            return new Quaternion(rotation.x, rotation.y, -rotation.z, -rotation.w);
+        void ProcessGravity(Vector3 gravity) {
+            var rotation = Quaternion.LookRotation(correctionRotation * -gravity);
+            onRotate?.Invoke(rotation);
         }
     }
 }

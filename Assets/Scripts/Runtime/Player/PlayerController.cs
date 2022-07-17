@@ -9,16 +9,21 @@ namespace MizuKiri.Player {
         [SerializeField]
         TouchInput touch = default;
 
-        [SerializeField, Expandable]
-        StoneFactory factory = default;
+        [SerializeField]
+        GyroInput gyro = default;
 
         [SerializeField, Expandable]
         Camera attachedCamera = default;
 
+        [Space]
+        [SerializeField, Expandable]
+        StoneFactory factory = default;
+
+        [Header("Pointing")]
         [SerializeField]
         AnimationCurve cameraDistanceOverY = AnimationCurve.Linear(0, 0, 1, 10);
 
-        [Space]
+        [Header("Throwing")]
         [SerializeField]
         float throwSpeedSmoothing = 0.1f;
         [SerializeField]
@@ -32,18 +37,26 @@ namespace MizuKiri.Player {
             if (!touch) {
                 transform.TryGetComponentInChildren(out touch);
             }
+            if (!gyro) {
+                transform.TryGetComponentInChildren(out gyro);
+            }
+            if (!attachedCamera) {
+                attachedCamera = FindObjectOfType<Camera>();
+            }
         }
 
         protected void OnEnable() {
             touch.onTouchStart += HandleTouchStart;
             touch.onTouchMove += HandleTouchMove;
             touch.onTouchStop += HandleTouchStop;
+            gyro.onRotate += HandleRotate;
         }
 
         protected void OnDisable() {
             touch.onTouchStart -= HandleTouchStart;
             touch.onTouchMove -= HandleTouchMove;
             touch.onTouchStop -= HandleTouchStop;
+            gyro.onRotate -= HandleRotate;
         }
 
         protected void FixedUpdate() {
@@ -70,6 +83,10 @@ namespace MizuKiri.Player {
 
         Vector3 TranslatePosition(Vector2 screenPosition) {
             return attachedCamera.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, cameraDistanceOverY.Evaluate(screenPosition.y / Screen.height)));
+        }
+
+        void HandleRotate(Quaternion rotation) {
+            attachedCamera.transform.localRotation = rotation;
         }
     }
 }

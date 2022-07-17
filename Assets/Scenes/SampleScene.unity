@@ -263,7 +263,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 366210933}
-  - component: {fileID: 366210932}
   - component: {fileID: 366210934}
   m_Layer: 0
   m_Name: Player
@@ -272,20 +271,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &366210932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366210931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd93cbbda75aa8449a7415f009bd7386, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_observedComponent: {fileID: 963194228}
-  gyro: {fileID: 0}
 --- !u!4 &366210933
 Transform:
   m_ObjectHideFlags: 0
@@ -315,8 +300,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touch: {fileID: 1165280367}
-  factory: {fileID: 11400000, guid: 4836699247831f642adc687c60bcabff, type: 2}
+  gyro: {fileID: 1165280368}
   attachedCamera: {fileID: 963194227}
+  factory: {fileID: 11400000, guid: 4836699247831f642adc687c60bcabff, type: 2}
   cameraDistanceOverY:
     serializedVersion: 2
     m_Curve:
@@ -1131,6 +1117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1165280366}
   - component: {fileID: 1165280367}
+  - component: {fileID: 1165280368}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -1169,6 +1156,20 @@ MonoBehaviour:
   - {x: 0.5, y: 0.4}
   - {x: 0.5, y: 0.5}
   - {x: 0.5, y: 0.6}
+--- !u!114 &1165280368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165280364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b99e29e1c896f4cb6dea63275b026e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctionRotation: {x: 0, y: 0, z: 0, w: 1}
+  debugGravity: {x: 0, y: 0, z: -1}
 --- !u!1 &1258833153
 GameObject:
   m_ObjectHideFlags: 0
