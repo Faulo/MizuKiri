@@ -88,7 +88,7 @@ namespace MizuKiri {
         public Vector3 travelStop = Vector3.zero;
         public float travelDistance => freezePosition
             ? 0
-            : Vector3.Distance(travelStart, travelStop);
+            : Vector2.Distance(travelStart.SwizzleXZ(), travelStop.SwizzleXZ());
         [NonSerialized]
         public bool canBounce = false;
         [NonSerialized]
