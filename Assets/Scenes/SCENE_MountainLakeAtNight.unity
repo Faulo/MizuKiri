@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: cf63b83fff88fd44b8dc525e3fb0c67c,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 085f5a49aeea7e3428c1f635024b0e96,
     type: 2}
 --- !u!196 &4
@@ -40360,7 +40361,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
+  m_fontSize: 183.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
