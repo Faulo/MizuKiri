@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2509920961452896993}
   - component: {fileID: 5216250299626891797}
   m_Layer: 0
-  m_Name: VFX_Ripple
+  m_Name: P_VFX_Splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,8 +117,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 2
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -170,8 +170,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 7
-      minScalar: 6
+      scalar: 9
+      minScalar: 8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -223,8 +223,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.14509805, g: 0.24705884, b: 0.49803925, a: 1}
-      maxColor: {r: 0.28764686, g: 0.48825264, b: 0.6037736, a: 1}
+      minColor: {r: 0.08235294, g: 0.13725491, b: 0.29803923, a: 1}
+      maxColor: {r: 0.17254902, g: 0.29803923, b: 0.5568628, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -603,14 +603,14 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 250
+    maxNumParticles: 2000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -664,10 +664,10 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 70
-    length: 0.2
+    angle: 30
+    length: 0.1
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0
+    radiusThickness: 1
     donutRadius: 0.1
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: -90, y: 0, z: 0}
@@ -979,7 +979,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 250
+        scalar: 200
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1029,8 +1029,8 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 1
-      repeatInterval: 0.5
+      cycleCount: 10
+      repeatInterval: 0.01
       probability: 1
   SizeModule:
     enabled: 0
