@@ -7552,6 +7552,8 @@ MonoBehaviour:
     physics: {fileID: 13400000, guid: f268d0a6c5641324da646387201556e1, type: 2}
   - rendering: {fileID: 2100000, guid: 2dfbac56d570ef342b1844757aa5295b, type: 2}
     physics: {fileID: 13400000, guid: f268d0a6c5641324da646387201556e1, type: 2}
+  - rendering: {fileID: 2100000, guid: cf82150a7ba1433438adf536937b9c46, type: 2}
+    physics: {fileID: 13400000, guid: f268d0a6c5641324da646387201556e1, type: 2}
   stonesToPrepare: 100
   triangleCount: 10
   bakePhysicsMesh: 0

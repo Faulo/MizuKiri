@@ -46,8 +46,16 @@ namespace MizuKiri {
         (Material rendering, PhysicMaterial physics) randomMaterials => materials.RandomElement().tuple;
 
         public Stone InstantiateStone(Vector3 position) {
+#if UNITY_EDITOR
+            if (!Application.isPlaying) {
+                var instance = PrefabUtility.InstantiatePrefab(prefab) as Stone;
+                instance.transform.SetPositionAndRotation(position, randomRotation);
+                instance.mesh = randomMesh;
+                instance.materials = randomMaterials;
+                return instance;
+            }
+#endif
             var stone = Instantiate(prefab, position, randomRotation);
-
             stone.mesh = randomMesh;
             stone.materials = randomMaterials;
 
