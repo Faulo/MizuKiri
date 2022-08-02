@@ -370,11 +370,11 @@
     "m_Guid": {
         "m_GuidSerialized": "036eb835-8653-4cb5-97d9-5653dff4b113"
     },
-    "m_Name": "EmissionIntensity",
+    "m_Name": "Emission Intensity",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "EmissionIntensity",
-    "m_DefaultReferenceName": "_EmissionIntensity",
-    "m_OverrideReferenceName": "",
+    "m_RefNameGeneratedByDisplayName": "Emission Intensity",
+    "m_DefaultReferenceName": "_Emission_Intensity",
+    "m_OverrideReferenceName": "_EmissionIntensity",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -411,7 +411,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "1dac15a1a1374523a1965d15c6f440fe",
     "m_Id": 0,
-    "m_DisplayName": "EmissionIntensity",
+    "m_DisplayName": "Emission Intensity",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -483,7 +483,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "ShadeViaUVs",
+    "m_Name": "SHN_ShadeViaUVs",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -619,6 +619,9 @@
         },
         {
             "m_Id": "54103a78a7b24a2f8f981ad83bd80e40"
+        },
+        {
+            "m_Id": "14dfd7180da541688c817901e87c8105"
         }
     ]
 }
@@ -1338,11 +1341,7 @@
     "m_Type": "UnityEditor.ShaderGraph.CategoryData",
     "m_ObjectId": "b10ae9331ae1422a9c6a188af1cb4fe4",
     "m_Name": "",
-    "m_ChildObjectList": [
-        {
-            "m_Id": "14dfd7180da541688c817901e87c8105"
-        }
-    ]
+    "m_ChildObjectList": []
 }
 
 {
