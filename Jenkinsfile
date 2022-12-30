@@ -6,7 +6,7 @@ pipeline {
         PROJECT = "${env.WORKSPACE}"
 		
 		// use auto-versioning based on tags+commits
-		PROJECT_VERSION = sh(script: "$COMPOSE_UNITY autoversion git '$WORKSPACE'", returnStdout: true).trim()
+		PROJECT_AUTOVERSION = ''
 		
 		// temporary folders
         REPORTS = "${env.WORKSPACE}/reports"
@@ -47,16 +47,17 @@ pipeline {
         }
         stage('Versioning') {
 			when {
-				not {
-					anyOf {
-						environment name: 'PROJECT_VERSION', value: ''
-						environment name: 'PROJECT_VERSION', value: '0'
-					}
+				anyOf {
+					environment name: 'PROJECT_AUTOVERSION', value: 'git'
+					environment name: 'PROJECT_AUTOVERSION', value: 'plastic'
 				}
 			}
+			environment {
+			    PROJECT_VERSION = sh(script: "$COMPOSE_UNITY autoversion '$PROJECT_AUTOVERSION' '$WORKSPACE'", returnStdout: true).trim()
+			}
             steps {
-				echo 'Setting project version to "$PROJECT_VERSION"....'
-				sh '$COMPOSE_UNITY unity-project-version "$PROJECT" set "$PROJECT_VERSION"'
+				echo 'Setting project version to "$PROJECT_VERSION"...'
+                sh '$COMPOSE_UNITY unity-project-version "$PROJECT" set "$PROJECT_VERSION"'
             }
         }
         stage('Testing') {
