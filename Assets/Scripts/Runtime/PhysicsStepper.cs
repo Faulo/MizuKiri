@@ -16,14 +16,15 @@ namespace MizuKiri {
 
         public IEnumerator Simulate() {
             for (int i = 0; i < totalFramesToSimulate; i++) {
-                Physics.autoSimulation = false;
+                Physics.simulationMode = SimulationMode.Script;
                 Physics.Simulate(deltaTimePerStep);
                 if (i % framesPerStep == 0) {
                     yield return null;
                 }
             }
+
             yield return null;
-            Physics.autoSimulation = true;
+            Physics.simulationMode = SimulationMode.FixedUpdate;
         }
 
         [SerializeField]
@@ -40,7 +41,7 @@ namespace MizuKiri {
             float time = Time.realtimeSinceStartup + rigidbodySettleTime;
 
             do {
-                Physics.autoSimulation = false;
+                Physics.simulationMode = SimulationMode.Script;
                 Physics.Simulate(deltaTimePerStep);
                 yield return null;
             } while (Time.realtimeSinceStartup < time && rigidbodies.Any(rigidbody => !rigidbody.IsSleeping()));
